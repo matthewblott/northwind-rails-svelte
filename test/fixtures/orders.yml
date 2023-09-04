@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: one
+  customer: one
+  order_date: 2023-09-04 13:09:15
+  shipped_date: 2023-09-04 13:09:15
+  ship_name: MyString
+  ship_address1: MyString
+  ship_address2: MyString
+  ship_city: MyString
+  ship_state: MyString
+  ship_postal_code: MyString
+  ship_country: MyString
+  shipping_fee: 9.99
+  payment_type: MyString
+  paid_date: 2023-09-04 13:09:15
+  order_status: MyString
+
+two:
+  employee: two
+  customer: two
+  order_date: 2023-09-04 13:09:15
+  shipped_date: 2023-09-04 13:09:15
+  ship_name: MyString
+  ship_address1: MyString
+  ship_address2: MyString
+  ship_city: MyString
+  ship_state: MyString
+  ship_postal_code: MyString
+  ship_country: MyString
+  shipping_fee: 9.99
+  payment_type: MyString
+  paid_date: 2023-09-04 13:09:15
+  order_status: MyString

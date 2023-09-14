@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_143422) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_14_155649) do
   create_table "customers", force: :cascade do |t|
     t.string "last_name", limit: 50
     t.string "first_name", limit: 50
@@ -68,12 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_143422) do
     t.string "payment_type", limit: 50
     t.datetime "paid_date", precision: nil
     t.string "order_status", limit: 25
-  end
-
-  create_table "people", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|

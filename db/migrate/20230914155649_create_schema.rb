@@ -1,4 +1,6 @@
 class CreateSchema < ActiveRecord::Migration[7.0]
+  NOW = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+
   def change
     create_table "customers", force: :cascade do |t|
       t.string "last_name", limit: 50
@@ -12,7 +14,8 @@ class CreateSchema < ActiveRecord::Migration[7.0]
       t.string "state", limit: 50
       t.string "postal_code", limit: 15
       t.string "country", limit: 50
-      # t.timestamps
+      t.datetime "created_at", default: NOW, null: false
+      t.datetime "updated_at", default: NOW, null: false
     end
 
     create_table "employees", force: :cascade do |t|
@@ -30,7 +33,8 @@ class CreateSchema < ActiveRecord::Migration[7.0]
       t.string "state", limit: 50
       t.string "postal_code", limit: 15
       t.string "country", limit: 50
-      # t.timestamps
+      t.datetime "created_at", default: NOW, null: false
+      t.datetime "updated_at", default: NOW, null: false
     end
 
     create_table "order_details", primary_key: ["order_id", "product_id"], force: :cascade do |t|
@@ -41,7 +45,8 @@ class CreateSchema < ActiveRecord::Migration[7.0]
       t.float "discount", default: 0.0, null: false
       t.string "order_detail_status", limit: 25
       t.datetime "date_allocated", precision: nil
-      # t.timestamps
+      t.datetime "created_at", default: NOW, null: false
+      t.datetime "updated_at", default: NOW, null: false
     end
 
     create_table "orders", force: :cascade do |t|
@@ -60,7 +65,8 @@ class CreateSchema < ActiveRecord::Migration[7.0]
       t.string "payment_type", limit: 50
       t.datetime "paid_date", precision: nil
       t.string "order_status", limit: 25
-      # t.timestamps
+      t.datetime "created_at", default: NOW, null: false
+      t.datetime "updated_at", default: NOW, null: false
     end
 
     create_table "products", force: :cascade do |t|
@@ -75,7 +81,8 @@ class CreateSchema < ActiveRecord::Migration[7.0]
       t.string "quantity_per_unit", limit: 50
       t.integer "discontinued", default: 0, null: false
       t.string "category", limit: 50
-      # t.timestamps
+      t.datetime "created_at", default: NOW, null: false
+      t.datetime "updated_at", default: NOW, null: false
     end
 
     add_foreign_key "order_details", "orders"

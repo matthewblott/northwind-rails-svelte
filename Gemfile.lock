@@ -173,6 +173,8 @@ GEM
       io-console (~> 0.5)
     rexml (3.2.6)
     rubyzip (2.3.2)
+    schema_to_scaffold (0.8.2)
+      activesupport (~> 7)
     selenium-webdriver (4.12.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -207,6 +209,9 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yaml_db (0.7.0)
+      rails (>= 3.0)
+      rake (>= 0.8.7)
     zeitwerk (2.6.11)
 
 PLATFORMS
@@ -220,13 +225,14 @@ DEPENDENCIES
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.8)
+  schema_to_scaffold
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
-  tzinfo-data
   web-console
+  yaml_db
 
 RUBY VERSION
    ruby 3.2.2p53

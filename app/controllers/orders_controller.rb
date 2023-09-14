@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1
   def show
-    render json: @order
+    # render json: @order
+    render 'show'
   end
 
   # POST /orders

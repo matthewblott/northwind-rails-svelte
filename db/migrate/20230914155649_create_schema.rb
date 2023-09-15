@@ -1,5 +1,5 @@
 class CreateSchema < ActiveRecord::Migration[7.0]
-  NOW = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+  NOW = Time.now.strftime("%F %T.%N")[0, 26]
 
   def change
     create_table "customers", force: :cascade do |t|

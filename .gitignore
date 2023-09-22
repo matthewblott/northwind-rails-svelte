@@ -36,3 +36,6 @@
 .idea
 
 !bin
+
+# Ignore Spring files
+/spring/*.pid

@@ -1,0 +1,16 @@
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Order Details</h1>
+
+<div id="order_details">
+  <% @order_details.each do |order_detail| %>
+    <%= render order_detail %>
+    <p>
+      <% #link_to "Show this order detail", order_detail %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New order detail", new_order_detail_path %>

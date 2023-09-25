@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_121304) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
   create_table "customers", force: :cascade do |t|
     t.string "last_name", limit: 50
     t.string "first_name", limit: 50
@@ -102,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_121304) do
     t.index ["manager_id"], name: "index_users_on_manager_id"
   end
 
+  add_foreign_key "employees", "employees", column: "manager_id"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "customers"

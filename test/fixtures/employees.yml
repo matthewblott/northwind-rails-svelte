@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
+employee:
+  first_name: Matt
   last_name: MyString
-  email: MyString
+  email: matt@example.com 
   phone: MyString
   address1: MyString
   address2: MyString
@@ -16,18 +16,18 @@ one:
   department: MyString
   manager_id: 1
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  address1: MyString
-  address2: MyString
-  city: MyString
-  state: MyString
-  postal_code: MyString
-  country: MyString
-  avatar: MyString
-  job_title: MyString
-  department: MyString
-  manager_id: 1
+# two:
+#   first_name: MyString
+#   last_name: MyString
+#   email: MyString
+#   phone: MyString
+#   address1: MyString
+#   address2: MyString
+#   city: MyString
+#   state: MyString
+#   postal_code: MyString
+#   country: MyString
+#   avatar: MyString
+#   job_title: MyString
+#   department: MyString
+#   manager_id: 1

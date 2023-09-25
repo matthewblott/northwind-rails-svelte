@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_155649) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_121304) do
   create_table "customers", force: :cascade do |t|
     t.string "last_name", limit: 50
     t.string "first_name", limit: 50
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_155649) do
     t.string "country", limit: 50
     t.datetime "created_at", default: "2023-09-15 12:32:17", null: false
     t.datetime "updated_at", default: "2023-09-15 12:32:17", null: false
+    t.index ["email"], name: "index_employees_on_email", unique: true
   end
 
   create_table "order_details", primary_key: ["order_id", "product_id"], force: :cascade do |t|
@@ -94,8 +95,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_155649) do
     t.datetime "updated_at", default: "2023-09-15 12:32:17", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "name", null: false
+    t.integer "manager_id"
+    t.index ["manager_id"], name: "index_users_on_manager_id"
+  end
+
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "employees"
+  add_foreign_key "users", "users", column: "parent_id", primary_key: "id"
 end

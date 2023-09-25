@@ -64,7 +64,6 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
-
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:product_code, :product_name, :description, :standard_cost, :list_price, :target_level, :reorder_level, :minimum_reorder_quantity, :quantity_per_unit, :discontinued, :category)

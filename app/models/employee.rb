@@ -19,13 +19,7 @@ class Employee < ApplicationRecord
   validates :postal_code, presence: true, length: { maximum: 15 }
   validates :country, presence: true, length: { maximum: 50 }
 
-  # belongs_to :order
-  # belongs_to :product
-  # validates :quantity, presence: true
-  # validates :discount, presence: true
-  # validates :created_at, presence: true
-  # validates :updated_at, presence: true
   # has_many :statuses, :class_name => 'MembershipStatus', :foreign_key => [:user_id, :group_id]
-  belongs_to :parent, :class_name => "Employee", :foreign_key => "manager_id"
+  belongs_to :parent, :class_name => "Employee", :foreign_key => "manager_id", optional: true
   has_many :children, :class_name => "Employee", :foreign_key => "manager_id"
 end

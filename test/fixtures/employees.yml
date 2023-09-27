@@ -1,33 +1,68 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-employee:
-  first_name: Matt
-  last_name: MyString
-  email: matt@example.com 
-  phone: MyString
-  address1: MyString
-  address2: MyString
-  city: MyString
-  state: MyString
-  postal_code: MyString
-  country: MyString
-  avatar: MyString
-  job_title: MyString
-  department: MyString
-  manager_id: 1
+# employee:
+#   first_name: 
+#   last_name: 
+#   email: 
+#   phone: 
+#   address1: 
+#   address2: 
+#   city: 
+#   state: 
+#   postal_code: 
+#   country: United Kingdom 
+#   avatar: 
+#   job_title: 
+#   department: 
+#   manager_id: 
 
-# two:
-#   first_name: MyString
-#   last_name: MyString
-#   email: MyString
-#   phone: MyString
-#   address1: MyString
-#   address2: MyString
-#   city: MyString
-#   state: MyString
-#   postal_code: MyString
-#   country: MyString
-#   avatar: MyString
-#   job_title: MyString
-#   department: MyString
-#   manager_id: 1
+helen_clarke:
+  # id: 1
+  first_name: Helen
+  last_name: Clarke
+  email: helen.clarke@example.com
+  phone: +44(0)6437 94481
+  address1: 1 Elliott Curve
+  address2: 
+  city: Lake Max
+  state: Williamstad
+  postal_code: ML11 9BQ
+  country: United Kingdom
+  avatar: 
+  job_title: Recreation and Fitness Studies Teacher
+  department: Foo
+  manager_id: 
+
+megan_evans:
+  # id: 2
+  first_name: Megan
+  last_name: Evans 
+  email: megan.evans@example.com 
+  phone: +44(0)1495731879
+  address1: Studio 22 White Mill
+  address2: 
+  city: Lewistown
+  state: Robertsonberg
+  postal_code: SE18 7QX
+  country: United Kingdom 
+  avatar: 
+  job_title: Construction Manager
+  department: Foo
+  manager_id:
+
+martin_wilson:
+  # id: 3
+  first_name: Martin
+  last_name: Wilson
+  email: martin.wilson@example.com
+  phone: +44(0)8130 17881
+  address1: 495 Shaw Rapid
+  address2: 
+  city: Reidton
+  state: Kieranborough
+  postal_code: 
+  country: United Kingdom 
+  avatar: 
+  job_title: Industrial Safety Engineer
+  department: Foo
+  manager_id: 

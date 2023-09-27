@@ -206,6 +206,11 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails_live_reload (0.3.4)
+      listen
+      nio4r
+      railties
+      websocket-driver
     railties (7.0.8)
       actionpack (= 7.0.8)
       activesupport (= 7.0.8)
@@ -258,6 +263,8 @@ GEM
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     stringio (3.0.8)
+    tailwindcss-rails (2.0.30-arm64-darwin)
+      railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.4.0)
     turbo-rails (1.4.0)
@@ -305,12 +312,14 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.8)
   rails-controller-testing
+  rails_live_reload (~> 0.3.4)
   rubocop
   schema_to_scaffold
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  tailwindcss-rails
   turbo-rails
   web-console
   webdrivers

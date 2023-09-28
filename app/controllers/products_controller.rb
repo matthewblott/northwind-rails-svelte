@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     # @products = Product.all
     @pagy, @products = pagy(Product.all, items: 2)
   end
-  ActionDispatch::IntegrationTes
+  
   # GET /products/1 or /products/1.json
   def show
   end

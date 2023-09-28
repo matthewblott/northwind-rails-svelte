@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
+ActiveRecord::Schema[7.1].define(version: 2023_09_25_191941) do
   create_table "customers", force: :cascade do |t|
     t.string "last_name", limit: 50
     t.string "first_name", limit: 50
@@ -23,8 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
     t.string "state", limit: 50
     t.string "postal_code", limit: 15
     t.string "country", limit: 50
-    t.datetime "created_at", default: "2023-09-15 12:32:17", null: false
-    t.datetime "updated_at", default: "2023-09-15 12:32:17", null: false
+    t.datetime "created_at", default: "2023-09-27 23:54:58", null: false
+    t.datetime "updated_at", default: "2023-09-27 23:54:58", null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -42,8 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
     t.string "state", limit: 50
     t.string "postal_code", limit: 15
     t.string "country", limit: 50
-    t.datetime "created_at", default: "2023-09-15 12:32:17", null: false
-    t.datetime "updated_at", default: "2023-09-15 12:32:17", null: false
+    t.datetime "created_at", default: "2023-09-27 23:54:58", null: false
+    t.datetime "updated_at", default: "2023-09-27 23:54:58", null: false
     t.index ["email"], name: "index_employees_on_email", unique: true
   end
 
@@ -55,8 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
     t.float "discount", default: 0.0, null: false
     t.string "order_detail_status", limit: 25
     t.datetime "date_allocated", precision: nil
-    t.datetime "created_at", default: "2023-09-15 12:32:17", null: false
-    t.datetime "updated_at", default: "2023-09-15 12:32:17", null: false
+    t.datetime "created_at", default: "2023-09-27 23:54:58", null: false
+    t.datetime "updated_at", default: "2023-09-27 23:54:58", null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -75,8 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
     t.string "payment_type", limit: 50
     t.datetime "paid_date", precision: nil
     t.string "order_status", limit: 25
-    t.datetime "created_at", default: "2023-09-15 12:32:17", null: false
-    t.datetime "updated_at", default: "2023-09-15 12:32:17", null: false
+    t.datetime "created_at", default: "2023-09-27 23:54:58", null: false
+    t.datetime "updated_at", default: "2023-09-27 23:54:58", null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -91,15 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
     t.string "quantity_per_unit", limit: 50
     t.integer "discontinued", default: 0, null: false
     t.string "category", limit: 50
-    t.datetime "created_at", default: "2023-09-15 12:32:17", null: false
-    t.datetime "updated_at", default: "2023-09-15 12:32:17", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.integer "parent_id"
-    t.integer "name", null: false
-    t.integer "manager_id"
-    t.index ["manager_id"], name: "index_users_on_manager_id"
+    t.datetime "created_at", default: "2023-09-27 23:54:58", null: false
+    t.datetime "updated_at", default: "2023-09-27 23:54:58", null: false
   end
 
   add_foreign_key "employees", "employees", column: "manager_id"
@@ -107,5 +100,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_191941) do
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "employees"
-  add_foreign_key "users", "users", column: "parent_id", primary_key: "id"
 end

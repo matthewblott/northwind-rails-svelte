@@ -13,7 +13,7 @@ gem "jbuilder"
 gem "schema_to_scaffold"
 gem "yaml_db"
 gem "pagy"
-gem "composite_primary_keys"
+# gem "composite_primary_keys"
 gem "tailwindcss-rails"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]

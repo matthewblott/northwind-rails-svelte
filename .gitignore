@@ -42,3 +42,6 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Node
+node_modules

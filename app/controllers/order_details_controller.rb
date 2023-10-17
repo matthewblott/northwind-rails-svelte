@@ -1,27 +1,24 @@
 class OrderDetailsController < ApplicationController
   include Pagy::Backend
   before_action :set_order_detail, only: %i[ show edit update destroy ]
+  before_action :set_order_details, only: %i[ index ]
 
-  # GET /order_details or /order_details.json
   def index
-    # @order_details = OrderDetail.all
     @pagy, @order_details = pagy(OrderDetail.all, items: 2)
   end
 
-  # GET /order_details/1 or /order_details/1.json
   def show
   end
 
-  # GET /order_details/new
   def new
+    order_id = params[:order_id]
     @order_detail = OrderDetail.new
+    @order_detail.order_id = order_id
   end
 
-  # GET /order_details/1/edit
   def edit
   end
 
-  # POST /order_details or /order_details.json
   def create
     @order_detail = OrderDetail.new(order_detail_params)
 
@@ -49,7 +46,6 @@ class OrderDetailsController < ApplicationController
     end
   end
 
-  # DELETE /order_details/1 or /order_details/1.json
   def destroy
     @order_detail.destroy
 
@@ -66,9 +62,14 @@ class OrderDetailsController < ApplicationController
       product_id = params[:product_id]
       @order_detail = OrderDetail.find([order_id,product_id])
 
-      # @order_detail = OrderDetail.find(params[:order_id])
     end
 
+    def set_order_details
+      order_id = params[:order_id] 
+      @order_details = OrderDetail.where(order_id: order_id)
+    end
+  
+  
     # Only allow a list of trusted parameters through.
     def order_detail_params
       params.require(:order_detail).permit(:order_id, :product_id, :quantity, :unit_price, :discount, :order_detail_status, :date_allocated)

@@ -1,4 +1,4 @@
-<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+<% #== pagy_nav(@pagy) if @pagy.pages > 1 %>
 
 <p style="color: green"><%= notice %></p>
 
@@ -13,4 +13,4 @@
   <% end %>
 </div>
 
-<%= link_to "New order detail", new_order_detail_path %>
+<%= link_to "New order detail", new_order_detail_path(order_id: @order_id) %>

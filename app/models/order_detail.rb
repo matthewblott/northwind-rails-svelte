@@ -1,5 +1,5 @@
 class OrderDetail < ApplicationRecord
-  self.primary_keys = :order_id, :product_id
+  # self.primary_keys = :order_id, :product_id
   belongs_to :order
   belongs_to :product
   validates :quantity, presence: true

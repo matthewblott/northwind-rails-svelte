@@ -1,0 +1,151 @@
+Started GET "/" for ::1 at 2023-10-25 19:22:10 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 185)
+Building with Vite ⚡️
+vite v4.5.0 building for development...
+
+transforming...
+
+✓ 131 modules transformed.
+
+rendering chunks...
+
+computing gzip size...
+
+../../public/vite-dev/manifest-assets.json              0.00 kB │ gzip:  0.02 kB
+
+../../public/vite-dev/manifest.json                     0.15 kB │ gzip:  0.11 kB
+
+../../public/vite-dev/assets/application-22b24734.js  114.99 kB │ gzip: 39.79 kB
+
+✓ built in 650ms
+
+Build with Vite complete: /Users/Matt/Develop/lab/northwind-with-rails/public/vite-dev
+7:22:12 PM [vite-plugin-svelte] /Users/Matt/Develop/lab/northwind-with-rails/node_modules/.pnpm/@inertiajs+svelte@1.0.13_svelte@4.2.2/node_modules/@inertiajs/svelte/src/Link.svelte:25:0 A11y: <svelte:element> with click, dblclick, mousedown, mousemove, mouseout, mouseover, mouseup handlers must have an ARIA role
+23: </script>
+24: 
+25: <svelte:element
+    ^
+26:   this={as}
+27:   use:inertia={{
+
+  Rendered layout layouts/application.html.erb (Duration: 1720.2ms | Allocations: 10011)
+Completed 200 OK in 1728ms (Views: 1723.0ms | ActiveRecord: 0.0ms | Allocations: 15941)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:22:53 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.4ms | Allocations: 133)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2323)
+Completed 200 OK in 4ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 3759)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:23:24 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.2ms | Allocations: 120)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2286)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 3652)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:23:38 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.1ms | Allocations: 120)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2286)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 3649)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:24:09 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 94)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2245)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 3464)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:24:10 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1442)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 1997)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:24:10 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 1852)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2453)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:24:37 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.1ms | Allocations: 124)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2305)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 3739)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:28:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.2ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 3768)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 10496)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:29:04 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.2ms | Allocations: 254)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 3770)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 10510)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:29:30 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.2ms | Allocations: 253)
+Skipping vite build. Watched files have not changed since the last build at 2023-10-25 19:22:12
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 5111)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 11824)
+
+
+Started GET "/" for ::1 at 2023-10-25 19:32:07 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application
+  Rendered /Users/Matt/.local/share/gem/gems/inertia_rails-3.1.2/app/views/inertia.html.erb within layouts/application (Duration: 0.2ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 3771)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 10510)
+
+

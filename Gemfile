@@ -11,7 +11,6 @@ gem "inertia_rails", "~> 3.1"
 
 group :development, :test do
   gem "debug"
-  # gem "foreman"
 end
 
 group :development do

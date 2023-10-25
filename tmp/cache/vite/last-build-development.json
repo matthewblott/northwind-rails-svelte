@@ -1,7 +1,0 @@
-{
-  "success": true,
-  "errors": "7:22:12 PM [vite-plugin-svelte] /Users/Matt/Develop/lab/northwind-with-rails/node_modules/.pnpm/@inertiajs+svelte@1.0.13_svelte@4.2.2/node_modules/@inertiajs/svelte/src/Link.svelte:25:0 A11y: <svelte:element> with click, dblclick, mousedown, mousemove, mouseout, mouseover, mouseup handlers must have an ARIA role\n23: </script>\n24: \n25: <svelte:element\n    ^\n26:   this={as}\n27:   use:inertia={{\n",
-  "timestamp": "2023-10-25 19:22:12",
-  "vite_ruby": "3.3.4",
-  "digest": "f3edefc9dd1257bac1fd03cd334c81b674c3ee82"
-}

@@ -17,3 +17,7 @@ group :development do
   # gem "spring"
 end
 
+
+gem "devise", "~> 4.9"
+
+gem "faker", "~> 3.2"

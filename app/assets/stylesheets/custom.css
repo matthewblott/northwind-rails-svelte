@@ -1,3 +1,25 @@
+:root {
+  --bg-color: #2D2D33;
+  --text-color: whitesmoke;
+  --radius: 5px;
+}
+
+/*
+* #1E3323
+* #47594B
+* #1E3323
+* #728C78
+* #75BF86
+* */
+
+/*
+* #2D2D33
+* #3B3D52
+* #1C2EEA
+* #454A85
+* #3B45B8
+* */
+
 /*
   =========
   CSS Reset
@@ -66,8 +88,8 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 
 body {
-  background-color: darkslategrey;
-  color: whitesmoke;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 a {
@@ -81,5 +103,20 @@ a {
 ul {
   list-style: none;
   padding: 0;
+}
+
+input, button {
+  border-radius: var(--radius);
+  color: inherit;
+  background-color: inherit;
+  border-style: solid;
+  border-color: whitesmoke;
+  border-width: 1px;
+  
+  &[type='submit']:hover,
+  button:hover {
+    cursor: pointer;
+  }
+
 }
 

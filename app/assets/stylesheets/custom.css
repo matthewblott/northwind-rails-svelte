@@ -1,6 +1,7 @@
 :root {
   --bg-color: #2D2D33;
   --text-color: whitesmoke;
+  --border-color: #3B3D52;
   --radius: 5px;
 }
 
@@ -112,6 +113,7 @@ input, button {
   border-style: solid;
   border-color: whitesmoke;
   border-width: 1px;
+  border-color: var(--border-color);
   
   &[type='submit']:hover,
   button:hover {

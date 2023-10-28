@@ -1,17 +1,9 @@
 <script lang="ts">
   import { inertia } from "@inertiajs/svelte";
   import Layout from "../../components/Layout.svelte";
-  import Pager from "../../components/Pager.svelte";
 
   export let customers = [];
-
   export let pagy = {};
-
-  export let foo = "foo";
-
-  if (foo === "bar") {
-    console.log("bar");
-  }
 </script>
 
 <Layout>
@@ -31,6 +23,7 @@
       <li>
         <a href={`/customers/?page=` + pagy.last} use:inertia>Last</a>
       </li>
+      <li><a href="/customers/new" use:inertia>New</a></li>
     </ul>
   </nav>
 

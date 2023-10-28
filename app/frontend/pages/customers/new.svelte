@@ -1,0 +1,45 @@
+<script lang="ts">
+  import Layout from "../../components/Layout.svelte";
+  import Form from "./Form.svelte";
+  import { router } from "@inertiajs/svelte";
+  import { inertia } from "@inertiajs/svelte";
+
+  export let customer = {};
+  export let errors = {};
+
+  const submit = () => {
+    router.post(`/customers/`, { customer });
+  };
+
+  router.on("success", (event) => {
+    console.log(`Successfully made a visit to ${event.detail.page.url}`);
+  });
+
+  router.on("finish", (event) => {
+    console.log("finished");
+  });
+</script>
+
+<Layout>
+  <h1>New Customer</h1>
+  <Form {customer} {errors} on:submit={submit} />
+</Layout>
+
+<style>
+  label {
+    display: block;
+  }
+
+  input {
+    display: block;
+  }
+
+  button {
+    display: block;
+    margin-top: 3px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+</style>

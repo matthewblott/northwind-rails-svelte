@@ -48,7 +48,7 @@ Employee.find(201).update_column(:email, 'admin@example.com')
 
 100.times do
   Customer.create(
-    :id => Faker::Alphanumeric.alpha(number: 5).upcase,
+    :id => Faker::Alphanumeric.unique.alpha(number: 5).upcase,
     :company_name => Faker::Company.name,
     :contact_name => Faker::Name.name,
     :contact_title => Faker::Job.title,
@@ -61,3 +61,25 @@ Employee.find(201).update_column(:email, 'admin@example.com')
     :fax => Faker::PhoneNumber.phone_number
   )
 end
+
+# ============================================================================
+# Products
+# =============================================================================
+
+product_id = 1
+
+100.times do
+  Product.create(
+    :id => product_id,
+    :product_code => Faker::Alphanumeric.unique.alphanumeric(number: 12).upcase,
+    :product_name => Faker::Commerce.product_name,
+    :description => Faker::Lorem.sentence,
+    :standard_cost => Faker::Commerce.price,
+    :list_price => Faker::Commerce.price,
+    :discontinued => Faker::Boolean.boolean
+  )
+  
+  product_id += 1
+
+end
+

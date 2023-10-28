@@ -10,9 +10,14 @@
 
 <header>
   <ul>
-    <li><a><a href="/" use:inertia>Home</a> </a></li>
-    <li><a href="/customers" use:inertia>Customers</a></li>
+    <li><a><a href="/" use:inertia>Home |</a> </a></li>
+    <li><a href="/customers" use:inertia>Customers |</a></li>
     <li><a href="/employees" use:inertia>Employees</a></li>
+  </ul>
+  <ul>
+    <li>
+      <span>Logged in: *username* |</span>
+    </li>
     <li>
       <button on:click={submit}>Sign Out</button>
     </li>
@@ -20,6 +25,11 @@
 </header>
 
 <style>
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   ul {
     display: flex;
   }

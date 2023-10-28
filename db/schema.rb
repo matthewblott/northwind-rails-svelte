@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_26_154358) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_28_163916) do
   create_table "customers", id: :string, force: :cascade do |t|
     t.string "company_name", limit: 50
     t.string "contact_name", limit: 50
@@ -48,6 +48,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_26_154358) do
     t.string "home_phone", limit: 25
     t.integer "extension"
     t.string "photo", limit: 250
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "product_code", limit: 25
+    t.string "product_name", limit: 50
+    t.string "description", limit: 250
+    t.decimal "standard_cost"
+    t.decimal "list_price"
+    t.boolean "discontinued"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

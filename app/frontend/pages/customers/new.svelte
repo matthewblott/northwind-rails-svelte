@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Layout from "../../components/Layout.svelte";
   import Form from "./Form.svelte";
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
@@ -20,10 +19,8 @@
   });
 </script>
 
-<Layout>
-  <h1>New Customer</h1>
-  <Form {customer} {errors} on:submit={submit} />
-</Layout>
+<h1>New Customer</h1>
+<Form {customer} {errors} on:submit={submit} />
 
 <style>
   label {

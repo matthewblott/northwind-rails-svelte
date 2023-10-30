@@ -8,10 +8,10 @@
     const employee = {
       email: email,
       password: password,
+      _token: document.cookie.substr(11, 86),
     };
 
     router.post(`/employees/sign_in`, { employee });
-    // router.get("/");
   };
 </script>
 
@@ -19,7 +19,7 @@
 
 <form on:submit|preventDefault={submit}>
   <div>
-    <label>Email <input name="email" /></label>
+    <label>Email <input name="email" value="admin@example.com" /></label>
   </div>
   <div>
     <label>Password <input name="password" type="password" /></label>

@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update ]
 
   get 'login', to: 'login#index'
+  get 'employees/sign_in', to: 'login#index'
 
-  post "employees", to: "employees#create"
+
+  # post "employees", to: "employees#create"
 
   root "home#index"
 

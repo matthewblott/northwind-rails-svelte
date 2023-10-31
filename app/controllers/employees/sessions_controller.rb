@@ -10,10 +10,9 @@ class Employees::SessionsController < Devise::SessionsController
     end
   }
 
-  # GET /employees/sign_in
-  # def new
-  #   render inertia: 'devise/sessions/new'
-  # end
+  def new
+    redirect_to :controller => '/login', :action => 'index'
+  end
 
   # POST /resource/sign_in
   # def create

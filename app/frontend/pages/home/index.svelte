@@ -1,29 +1,32 @@
 <script lang="ts">
-  // export let employee = {};
+  // import { router } from "@inertiajs/svelte";
+  import { getCookie } from "../../lib/utils";
   import { onMount } from "svelte";
-  import * as s from "@inertiajs/svelte";
-  import * as i from "@inertiajs/inertia";
-  import { router } from "@inertiajs/svelte";
 
-  const submit = () => {
-    const employee = {
-      _token: document.cookie.substr(11, 86),
-    };
+  let csrfToken = "";
 
-    router.delete(`/employees/sign_out`, { employee });
-  };
+  onMount(() => {
+    csrfToken = getCookie("XSRF-TOKEN");
+  });
 
-  // onMount(() => {
-  //   console.log(employee);
-  // });
+  // const submit = (e) => {
+  //   const target = e.target;
+  //   const form = target.closest("form");
+  //   let formData = new FormData(form);
+  //   const cookie = getCookie("XSRF-TOKEN");
+  //   formData.append("authenticity_token", cookie);
+  //   const jsonObject = Object.fromEntries(formData);
+  //   const data = JSON.stringify(jsonObject);
+  //   router.post("/employees/sign_in", data);
+  // };
 </script>
 
 <h1>Home</h1>
 
-<form on:submit|preventDefault={submit}>
-  <input type="hidden" name="_method" value="delete" /><button type="submit"
-    >Sign out</button
-  >
-
-  <input name="authenticity_token" />
-</form>
+<!-- <form action="/employees/sign_out" method="post"> -->
+<!--   <input type="hidden" name="_method" value="delete" /> -->
+<!--   <input type="hidden" name="authenticity_token" value={csrfToken} /> -->
+<!--   <div> -->
+<!--     <button>Sign Out</button> -->
+<!--   </div> -->
+<!-- </form> -->

@@ -1,8 +1,12 @@
 <script lang="ts">
   import { inertia } from "@inertiajs/svelte";
-
+  import { onMount } from "svelte";
   export let customers = [];
   export let pagy = {};
+
+  onMount(() => {
+    document.title = "Customers";
+  });
 </script>
 
 <h1>Customers</h1>

@@ -1,46 +1,5 @@
 <h2>Log In</h2>
 
-<form action="/employees/sign_in" method="post">
-  <div>
-    <label
-      >Email
-      <input type="email" name="employee[email]" value="admin@example.com" /></label
-    >
-  </div>
-
-  <div>
-    <label
-      >Password
-      <input
-        autocomplete="current-password"
-        type="password"
-        name="employee[password]"
-      /></label
-    >
-  </div>
-<!--
-  <div>
-    <label>
-      <input name="employee[remember_me]" type="hidden" value="0" /><input
-        type="checkbox"
-        value="1"
-        name="employee[remember_me]"
-      />
-      Remember me</label
-    >
-  </div>
--->
-  <div>
-    <input type="submit" value="Log in" />
-  </div>
-</form>
-
-<%= render "devise/shared/links" %>
-
-<hr>
-
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />

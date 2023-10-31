@@ -1,30 +1,45 @@
 <script lang="ts">
-  import { router } from "@inertiajs/svelte";
+  // import { router } from "@inertiajs/svelte";
+  import { getCookie } from "../../lib/utils";
+  import { onMount } from "svelte";
 
-  const submit = () => {
-    const email = document.querySelector('[name="email"]').value;
-    const password = document.querySelector('input[name="password"]').value;
+  let csrfToken = "";
 
-    const employee = {
-      email: email,
-      password: password,
-      _token: document.cookie.substr(11, 86),
-    };
+  onMount(() => {
+    csrfToken = getCookie("XSRF-TOKEN");
+  });
 
-    router.post(`/employees/sign_in`, { employee });
-  };
+  // const submit = (e) => {
+  //   const target = e.target;
+  //   const form = target.closest("form");
+  //   let formData = new FormData(form);
+  //   const cookie = getCookie("XSRF-TOKEN");
+  //   formData.append("authenticity_token", cookie);
+  //   const jsonObject = Object.fromEntries(formData);
+  //   const data = JSON.stringify(jsonObject);
+  //   router.post("/employees/sign_in", data);
+  // };
 </script>
 
 <div>Login</div>
 
-<form on:submit|preventDefault={submit}>
+<form action="/employees/sign_in" method="post">
   <div>
-    <label>Email <input name="email" value="admin@example.com" /></label>
+    <label
+      >email <input name="employee[email]" value="admin@example.com" /></label
+    >
   </div>
   <div>
-    <label>Password <input name="password" type="password" /></label>
+    <label
+      >password <input
+        name="employee[password]"
+        type="password"
+        value="password"
+      /></label
+    >
+    <input type="hidden" name="authenticity_token" value={csrfToken} />
   </div>
   <div>
-    <button on:click|preventDefault={submit}>Login</button>
+    <button>login</button>
   </div>
 </form>

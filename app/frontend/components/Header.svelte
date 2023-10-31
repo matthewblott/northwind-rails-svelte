@@ -1,13 +1,7 @@
 <script lang="ts">
   import { inertia } from "@inertiajs/svelte";
-  import { router } from "@inertiajs/svelte";
-
+  import Logout from "./Logout.svelte";
   export let name = "";
-
-  const submit = () => {
-    router.delete("/employees/sign_out");
-    router.get("/");
-  };
 </script>
 
 <header>
@@ -23,7 +17,7 @@
       <span>Hello {name} |</span>
     </li>
     <li>
-      <button on:click={submit}>Sign Out</button>
+      <Logout />
     </li>
   </ul>
 </header>
@@ -40,15 +34,5 @@
 
   li {
     padding-right: 5px;
-  }
-
-  button {
-    border: none;
-    padding: 0;
-
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
   }
 </style>

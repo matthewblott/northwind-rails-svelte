@@ -22,6 +22,10 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     
+    password = 'password'
+    @employee.password = password
+    @employee.password_confirmation = password 
+
     if @employee.save
       redirect_to @employee, notice: "employee was successfully created."
     else
@@ -56,7 +60,8 @@ private
   end
 
   def employee_params
-    params.require(:employee).permit(:id, :last_name, :first_name, :title, :title_of_courtesy, :birth_date, :hire_date, :address1, :address2, :city, :region, :postal_code, :country, :home_phone, :extension, :photo)
+    params.require(:employee).permit(:email, :last_name, :first_name)
+    # params.require(:employee).permit(:last_name, :first_name, :title, :title_of_courtesy, :birth_date, :hire_date, :address1, :address2, :city, :region, :postal_code, :country, :home_phone, :extension, :photo)
   end
 
 end

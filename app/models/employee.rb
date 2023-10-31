@@ -1,10 +1,13 @@
 class Employee < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :validatable
 
   validates :email, presence: true
+  validates :first_name, presence: false
+  validates :last_name, presence: false
+
   # validates :first_name, presence: true, length: { minimum: 2, maximum: 50 }
   # validates :last_name, presence: true, length: { minimum: 2, maximum: 50 }
   # validates :title, presence: true, length: { minimum: 2, maximum: 50 }
@@ -19,4 +22,10 @@ class Employee < ApplicationRecord
   # validates :country, presence: true, length: { minimum: 2, maximum: 50 }
   # validates :home_phone, presence: true, length: { minimum: 2, maximum: 25 }
   # validates :extension, presence: true, length: { minimum: 2, maximum: 3 }
+  
+  # scope :filter_by_name, -> (query) { where('title LIKE ?', "%#{title}%") }
+  # scope :filter_by_name, -> (query) { where(["first_name = :query or last_name = :query", { query: query }])}
+
+  scope :filter_by_name, -> (search) { where('first_name LIKE ?', "%#{search}%") }
+
 end

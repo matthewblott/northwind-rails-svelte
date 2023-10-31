@@ -59,4 +59,8 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  def employee_params
+    params.require(:employee).permit(:email, :last_name, :first_name)
+    # params.require(:employee).permit(:last_name, :first_name, :title, :title_of_courtesy, :birth_date, :hire_date, :address1, :address2, :city, :region, :postal_code, :country, :home_phone, :extension, :photo)
+  end
 end

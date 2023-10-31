@@ -12,6 +12,9 @@
 
 <h1>Employee</h1>
 <div>
+  <label>Email <input bind:value={employee.email} /></label>
+</div>
+<div>
   <label>Title <input bind:value={employee.title} /></label>
 </div>
 <div>

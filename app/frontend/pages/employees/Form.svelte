@@ -15,6 +15,10 @@
 
 <form on:submit|preventDefault={submit}>
   <div>
+    <label>Email <input bind:value={employee.email} /></label>
+    {#if errors.email}<div>{errors.email}</div>{/if}
+  </div>
+  <div>
     <label>Title <input bind:value={employee.title} /></label>
     {#if errors.title}<div>{errors.title}</div>{/if}
   </div>

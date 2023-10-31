@@ -7,7 +7,7 @@
   export let errors = {};
 
   const submit = () => {
-    router.post(`/employees/`, { employee });
+    router.post(`/employees`, { employee });
   };
 
   router.on("success", (event) => {

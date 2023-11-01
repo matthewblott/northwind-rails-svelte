@@ -2,41 +2,35 @@
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
 
-  let search = "";
-
-  export let props = {};
+  let count = 0;
 
   const keyup = (e) => {
-    //
-    search = e.target.value;
-
-    // router.post(`search?q=${search}`);
+    const search = e.target.value;
 
     const data = {
       search,
     };
 
-    router.post("/search", data, {
-      onBefore: (visit) => {},
-      onStart: (visit) => {},
-      onProgress: (progress) => {},
-      onSuccess: (page) => {
-        console.log(page);
-      },
-      onError: (errors) => {
-        console.log(errors);
-      },
-      onCancel: () => {},
-      onFinish: (visit) => {
-        console.log(visit);
-      },
-    });
+    const timeout = setTimeout(() => {
+      if (search.length < 2) {
+        count = 0;
+        return;
+      }
 
-    // console.log(e);
+      router.post("/search", data, {
+        onSuccess: (page) => {
+          console.log(page);
+          count = page.props.employees.length;
+        },
+        onError: (errors) => {
+          console.log(errors);
+        },
+      });
+    }, 500);
   };
 </script>
 
-<input on:keyup={keyup} name="q" placeholder="search" />
+<input on:keyup={keyup} placeholder="search" />
 <div>
-  <span>{search}</span>
+  <span>Number of records: {count}</span>
 </div>

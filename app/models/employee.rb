@@ -22,10 +22,7 @@ class Employee < ApplicationRecord
   # validates :country, presence: true, length: { minimum: 2, maximum: 50 }
   # validates :home_phone, presence: true, length: { minimum: 2, maximum: 25 }
   # validates :extension, presence: true, length: { minimum: 2, maximum: 3 }
-  
-  # scope :filter_by_name, -> (query) { where('title LIKE ?', "%#{title}%") }
-  # scope :filter_by_name, -> (query) { where(["first_name = :query or last_name = :query", { query: query }])}
 
-  scope :filter_by_name, -> (search) { where('first_name LIKE ?', "%#{search}%") }
+  scope :filter_by_name, -> (search) { where('first_name LIKE ? or last_name LIKE ?', "%#{search}%", "%#{search}%") }
 
 end

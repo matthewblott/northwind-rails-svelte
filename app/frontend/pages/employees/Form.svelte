@@ -1,19 +1,9 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
-
-  const dispatch = createEventDispatcher();
-
   export let employee = {};
   export let errors = {};
-
-  const submit = () => {
-    dispatch("submit", { employee });
-  };
 </script>
 
-<div>Employee</div>
-
-<form on:submit|preventDefault={submit}>
+<form>
   <div>
     <label>Email <input bind:value={employee.email} /></label>
     {#if errors.email}<div>{errors.email}</div>{/if}
@@ -66,9 +56,6 @@
     <label>Home Phone <input bind:value={employee.home_phone} /></label>
     {#if errors.home_phone}<div>{errors.home_phone}</div>{/if}
   </div>
-  <div>
-    <button type="submit">Save</button>
-  </div>
 </form>
 
 <style>
@@ -78,15 +65,6 @@
 
   form input {
     display: block;
-  }
-
-  form button {
-    display: block;
-    margin-top: 3px;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   label + div {

@@ -6,8 +6,13 @@
   export let employee = {};
   export let errors = {};
 
-  const submit = () => {
+  const update = () => {
     router.put(`/employees/${employee.id}`, { employee });
+  };
+
+  const remove = () => {
+    // router.delete(`/employees/${employee.id}`);
+    alert("not implemented");
   };
 
   router.on("success", (event) => {
@@ -20,7 +25,10 @@
 </script>
 
 <h1>Edit Employee</h1>
-<Form {employee} {errors} on:submit={submit} />
+<Form {employee} {errors} />
+<button on:click={update}>Update</button>
+<button on:click={remove}>Delete</button>
+<a href={`/employees/${employee.id}`} use:inertia>Back</a>
 
 <style>
   label {
@@ -32,11 +40,22 @@
   }
 
   button {
-    display: block;
+    display: inline-block;
     margin-top: 3px;
 
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  a {
+    border-color: var(--border-color);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--radius);
+    padding: 4px;
+    &:hover {
+      text-decoration: none;
     }
   }
 </style>

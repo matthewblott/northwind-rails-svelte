@@ -3,42 +3,20 @@
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
 
-  export let customer = {};
+  export let order = {};
   export let errors = {};
 
   const create = () => {
-    router.post("/customers", customer, {
-      onBefore: (visit) => {
-        console.log(visit);
-      },
-      onStart: (visit) => {
-        console.log(visit);
-      },
-      onProgress: (progress) => {
-        console.log(progress);
-      },
-      onSuccess: (page) => {
-        console.log(page);
-      },
-      onError: (errors) => {
-        console.log(errors);
-      },
-      onCancel: () => {
-        console.log("cancel");
-      },
-      onFinish: (visit) => {
-        console.log(visit);
-      },
-    });
+    router.post(`/orders/`, { order });
   };
 </script>
 
-<h1>New Customer</h1>
-<Form {customer} {errors} />
+<h1>New Order</h1>
+<Form {order} {errors} />
 
 <button on:click={create}>Create</button>
 
-<a href={`/customers`} use:inertia>Back</a>
+<a href={`/orders`} use:inertia>Back</a>
 
 <style>
   label {

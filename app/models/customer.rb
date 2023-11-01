@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  validates :id, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 25 }
   validates :company_name, presence: true, length: { maximum: 50 }
   validates :contact_name, presence: true, length: { maximum: 50 }
   validates :contact_title, presence: true, length: { maximum: 50 }

@@ -1,19 +1,9 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
-
-  const dispatch = createEventDispatcher();
-
   export let product = {};
   export let errors = {};
-
-  const submit = () => {
-    dispatch("submit", { product });
-  };
 </script>
 
-<div>Product</div>
-
-<form on:submit|preventDefault={submit}>
+<form>
   <div>
     <label>Product Code <input bind:value={product.product_code} /></label>
     {#if errors.product_code}<div>{errors.product_code}</div>{/if}
@@ -37,10 +27,6 @@
   <div>
     <label>Discontinued <input bind:value={product.discontinued} /></label>
     {#if errors.discontinued}<div>{errors.discontinued}</div>{/if}
-  </div>
-
-  <div>
-    <button type="submit">Save</button>
   </div>
 </form>
 

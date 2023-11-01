@@ -1,3 +1,21 @@
+# ============================================================================
+# Regions
+# ============================================================================
+
+region_id = 1
+
+regions = []
+
+20.times do 
+  regions <<  Region.create(
+    :id => region_id,
+    :name => Faker::Address.country
+  )
+  
+  region_id += 1
+
+end
+
 # =============================================================================
 # Employees
 # =============================================================================
@@ -188,8 +206,10 @@ end
 
 category_id = 1
 
+categories = []
+
 100.times do
-  Category.create(
+  categories <<  Category.create(
     :id => category_id,
     :category_name => Faker::Commerce.department,
     :description => Faker::Lorem.sentence
@@ -221,8 +241,10 @@ end
 
 shipper_id = 1
 
+shippers = []
+
 100.times do  
-  Shipper.create(
+  shippers << Shipper.create(
     :id => shipper_id,
     :company_name => Faker::Company.name,
     :phone => Faker::PhoneNumber.phone_number

@@ -3,21 +3,23 @@
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
 
-  export let employee = {};
+  export let order = {};
   export let errors = {};
 
-  const create = () => {
-    // router.post(`/employees`, { employee });
+  const update = () => {
+    router.put(`/orders/${order.id}`, { order });
+  };
+
+  const remove = () => {
     alert("Not implemented currently");
   };
 </script>
 
-<h1>New Employee</h1>
-<Form {employee} {errors} />
-
-<button on:click={create}>Create</button>
-
-<a href={`/employees`} use:inertia>Back</a>
+<h1>Edit Order</h1>
+<Form {order} {errors} />
+<button on:click={update}>Update</button>
+<button on:click={remove}>Delete</button>
+<a href={`/orders/${order.id}`} use:inertia>Back</a>
 
 <style>
   label {

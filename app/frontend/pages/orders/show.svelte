@@ -2,16 +2,16 @@
   import { inertia } from "@inertiajs/svelte";
   import { router } from "@inertiajs/svelte";
   import Form from "./Form.svelte";
-  export let product = {};
+  export let order = {};
 </script>
 
-<h1>Product</h1>
+<h1>Order</h1>
 
-<Form {product} />
+<Form {order} />
 
-<a href={`/products/${product.id}/edit`} use:inertia>Edit</a>
+<a href={`/orders/${order.id}/edit`} use:inertia>Edit</a>
 
-<a href={`/products`} use:inertia>Back</a>
+<a href={`/orders`} use:inertia>Back</a>
 
 <style>
   a {

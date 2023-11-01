@@ -3,11 +3,6 @@
   import { router } from "@inertiajs/svelte";
   import Form from "./Form.svelte";
   export let employee = {};
-
-  const submit = () => {
-    // router.delete(`/employees/${employee.id}`);
-    alert("not implemented");
-  };
 </script>
 
 <h1>Employee</h1>

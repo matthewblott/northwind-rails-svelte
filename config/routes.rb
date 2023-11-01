@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :customers, only: [:index, :show, :new, :create, :edit, :update ]
   # resources :employees, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :employees, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :orders, only: [:index, :show, :new, :create, :edit, :update ]
   resources :products, only: [:index, :show, :new, :create, :edit, :update ]
 
   get 'login', to: 'login#index'

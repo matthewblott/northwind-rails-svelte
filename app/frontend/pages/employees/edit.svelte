@@ -12,16 +12,8 @@
 
   const remove = () => {
     // router.delete(`/employees/${employee.id}`);
-    alert("not implemented");
+    alert("Not implemented currently");
   };
-
-  router.on("success", (event) => {
-    console.log(`Successfully made a visit to ${event.detail.page.url}`);
-  });
-
-  router.on("finish", (event) => {
-    console.log("finished");
-  });
 </script>
 
 <h1>Edit Employee</h1>

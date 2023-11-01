@@ -7,9 +7,9 @@
 <header>
   <ul>
     <li><a><a href="/" use:inertia>Home |</a> </a></li>
-    <li><a><a href="/about" use:inertia>About |</a> </a></li>
     <li><a href="/customers" use:inertia>Customers |</a></li>
     <li><a href="/employees" use:inertia>Employees |</a></li>
+    <li><a href="/orders" use:inertia>Orders |</a></li>
     <li><a href="/products" use:inertia>Products</a></li>
   </ul>
   <ul>

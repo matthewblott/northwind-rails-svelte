@@ -6,21 +6,20 @@
   export let customer = {};
   export let errors = {};
 
-  const submit = () => {
+  const update = () => {
     router.put(`/customers/${customer.id}`, { customer });
   };
 
-  router.on("success", (event) => {
-    console.log(`Successfully made a visit to ${event.detail.page.url}`);
-  });
-
-  router.on("finish", (event) => {
-    console.log("finished");
-  });
+  const remove = () => {
+    alert("Not implemented currently");
+  };
 </script>
 
 <h1>Edit Customer</h1>
-<Form {customer} {errors} on:submit={submit} />
+<Form {customer} {errors} />
+<button on:click={update}>Update</button>
+<button on:click={remove}>Delete</button>
+<a href={`/customers/${customer.id}`} use:inertia>Back</a>
 
 <style>
   label {
@@ -32,11 +31,22 @@
   }
 
   button {
-    display: block;
+    display: inline-block;
     margin-top: 3px;
 
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  a {
+    border-color: var(--border-color);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--radius);
+    padding: 4px;
+    &:hover {
+      text-decoration: none;
     }
   }
 </style>

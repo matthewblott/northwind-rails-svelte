@@ -6,21 +6,39 @@
   export let product = {};
   export let errors = {};
 
-  const submit = () => {
-    router.post(`/products/`, { product });
+  const create = () => {
+    router.post("/products", product, {
+      onBefore: (visit) => {
+        console.log(visit);
+      },
+      onStart: (visit) => {
+        console.log(visit);
+      },
+      onProgress: (progress) => {
+        console.log(progress);
+      },
+      onSuccess: (page) => {
+        console.log(page);
+      },
+      onError: (errors) => {
+        console.log(errors);
+      },
+      onCancel: () => {
+        console.log("cancel");
+      },
+      onFinish: (visit) => {
+        console.log(visit);
+      },
+    });
   };
-
-  router.on("success", (event) => {
-    console.log(`Successfully made a visit to ${event.detail.page.url}`);
-  });
-
-  router.on("finish", (event) => {
-    console.log("finished");
-  });
 </script>
 
 <h1>New Product</h1>
-<Form {product} {errors} on:submit={submit} />
+<Form {product} {errors} />
+
+<button on:click={create}>Create</button>
+
+<a href={`/products`} use:inertia>Back</a>
 
 <style>
   label {
@@ -32,11 +50,22 @@
   }
 
   button {
-    display: block;
+    display: inline-block;
     margin-top: 3px;
 
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  a {
+    border-color: var(--border-color);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--radius);
+    padding: 4px;
+    &:hover {
+      text-decoration: none;
     }
   }
 </style>

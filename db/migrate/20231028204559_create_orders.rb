@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration[7.1]
   def change
     create_table :orders do |t|
       t.integer :employee_id
-      t.integer :customer_id
+      t.string :customer_id
       t.datetime :order_date, precision: nil
       t.datetime :shipped_date, precision: nil
       t.string :ship_name, limit: 50

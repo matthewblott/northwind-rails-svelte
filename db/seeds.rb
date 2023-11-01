@@ -1,3 +1,22 @@
+# =============================================================================
+# Categories
+# =============================================================================
+
+category_id = 1
+
+categories = []
+
+100.times do
+  categories <<  Category.create(
+    :id => category_id,
+    :category_name => Faker::Commerce.department,
+    :description => Faker::Lorem.sentence
+  )
+  
+  category_id += 1
+
+end
+
 # ============================================================================
 # Regions
 # ============================================================================
@@ -13,6 +32,50 @@ regions = []
   )
   
   region_id += 1
+
+end
+
+# =============================================================================
+# Shippers
+# =============================================================================
+
+shipper_id = 1
+
+shippers = []
+
+100.times do  
+  shippers << Shipper.create(
+    :id => shipper_id,
+    :company_name => Faker::Company.name,
+    :phone => Faker::PhoneNumber.phone_number
+  )
+  
+  shipper_id += 1
+end
+
+# =============================================================================
+# Suppliers
+# =============================================================================
+
+supplier_id = 1
+
+100.times do
+  Supplier.create(
+    :id => supplier_id,
+    :company_name => Faker::Company.name,
+    :contact_name => Faker::Name.name,
+    :contact_title => Faker::Job.title,
+    :address => Faker::Address.street_address,
+    :city => Faker::Address.city,
+    :region => Faker::Address.state,
+    :postal_code => Faker::Address.zip,
+    :country => Faker::Address.country,
+    :phone => Faker::PhoneNumber.phone_number,
+    :fax => Faker::PhoneNumber.phone_number,
+    :homepage => Faker::Internet.url
+  )
+  
+  supplier_id += 1
 
 end
 
@@ -175,51 +238,6 @@ end
 end
 
 # =============================================================================
-# Suppliers
-# =============================================================================
-
-supplier_id = 1
-
-100.times do
-  Supplier.create(
-    :id => supplier_id,
-    :company_name => Faker::Company.name,
-    :contact_name => Faker::Name.name,
-    :contact_title => Faker::Job.title,
-    :address => Faker::Address.street_address,
-    :city => Faker::Address.city,
-    :region => Faker::Address.state,
-    :postal_code => Faker::Address.zip,
-    :country => Faker::Address.country,
-    :phone => Faker::PhoneNumber.phone_number,
-    :fax => Faker::PhoneNumber.phone_number,
-    :homepage => Faker::Internet.url
-  )
-  
-  supplier_id += 1
-
-end
-
-# =============================================================================
-# Categories
-# =============================================================================
-
-category_id = 1
-
-categories = []
-
-100.times do
-  categories <<  Category.create(
-    :id => category_id,
-    :category_name => Faker::Commerce.department,
-    :description => Faker::Lorem.sentence
-  )
-  
-  category_id += 1
-
-end
-
-# =============================================================================
 # Product Categories
 # =============================================================================
 
@@ -235,20 +253,3 @@ end
 #   product_id += 1
 # end
 
-# =============================================================================
-# Shippers
-# =============================================================================
-
-shipper_id = 1
-
-shippers = []
-
-100.times do  
-  shippers << Shipper.create(
-    :id => shipper_id,
-    :company_name => Faker::Company.name,
-    :phone => Faker::PhoneNumber.phone_number
-  )
-  
-  shipper_id += 1
-end

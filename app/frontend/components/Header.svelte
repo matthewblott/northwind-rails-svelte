@@ -7,10 +7,14 @@
 <header>
   <ul>
     <li><a><a href="/" use:inertia>Home |</a> </a></li>
+    <li><a href="/categories" use:inertia>Categories |</a></li>
     <li><a href="/customers" use:inertia>Customers |</a></li>
     <li><a href="/employees" use:inertia>Employees |</a></li>
     <li><a href="/orders" use:inertia>Orders |</a></li>
-    <li><a href="/products" use:inertia>Products</a></li>
+    <li><a href="/products" use:inertia>Products |</a></li>
+    <li><a href="/regions" use:inertia>Regions |</a></li>
+    <li><a href="/shippers" use:inertia>Shippers |</a></li>
+    <li><a href="/suppliers" use:inertia>Suppliers</a></li>
   </ul>
   <ul>
     <li>

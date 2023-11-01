@@ -8,11 +8,14 @@ Rails.application.routes.draw do
   # post "employees/create", to: "employees#create"
 
   resources :login, only: [:index]
+  resources :categories, only: [:index, :show, :new, :create, :edit, :update ]
   resources :customers, only: [:index, :show, :new, :create, :edit, :update ]
-  # resources :employees, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :employees, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :orders, only: [:index, :show, :new, :create, :edit, :update ]
   resources :products, only: [:index, :show, :new, :create, :edit, :update ]
+  resources :regions, only: [:index, :show, :new, :create, :edit, :update ]
+  resources :shippers, only: [:index, :show, :new, :create, :edit, :update ]
+  resources :suppliers, only: [:index, :show, :new, :create, :edit, :update ]
 
   get 'login', to: 'login#index'
   get 'employees/sign_in', to: 'login#index'

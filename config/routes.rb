@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 
   resources :search, only: [:index]
 
-  post 'search', to: 'search#search'
+  post 'search/employee', to: 'search#employee'
+  post 'search/customer', to: 'search#customer'
+
   root "home#index"
 
 end

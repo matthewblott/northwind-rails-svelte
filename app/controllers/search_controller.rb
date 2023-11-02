@@ -2,11 +2,23 @@ class SearchController < ApplicationController
   def index
   end
   
-  def search
+  def customer 
     
     query = params[:search]
 
-    @employees = Employee.filter_by_name(query)
+    @customers = Customer.company_like(query)
+
+    render inertia: 'search/index', props: {
+      customers: @customers
+    }
+
+  end
+
+  def employee 
+    
+    query = params[:search]
+
+    @employees = Employee.name_like(query)
 
     render inertia: 'search/index', props: {
       employees: @employees 

@@ -7,8 +7,8 @@
   export let errors = {};
 
   const create = () => {
-    // router.post(`/employees`, { employee });
-    alert("Not implemented currently");
+    router.post(`/employees`, { employee });
+    // alert("Not implemented currently");
   };
 </script>
 

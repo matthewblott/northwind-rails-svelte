@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'about', to: 'about#index'
 
   # devise_for :employees, controllers: { registrations: 'employees/registrations', sessions: 'employees/sessions' } 
-  devise_for :employees, controllers: { sessions: 'employees/sessions' } 
+  devise_for :employees, controllers: { sessions: 'sessions' } 
   # devise_for :employees, :path => 'employees', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   # post "employees/create", to: "employees#create"

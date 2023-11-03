@@ -16,8 +16,7 @@ class Customer < ApplicationRecord
   scope :company_id_or_company_name_like, -> (query) { company_id_like(query).or(company_name_like(query)) }
 
   def self.company_like(q)
-    
-    company_id_or_company_name_like(q)
+    company_id_or_company_name_like(q).uniq
 
     # words = q.split
     # if words.length > 1

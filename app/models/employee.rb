@@ -5,8 +5,8 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, presence: true
-  # validates :first_name, presence: true, length: { minimum: 2, maximum: 50 }
-  # validates :last_name, presence: true, length: { minimum: 2, maximum: 50 }
+  validates :first_name, presence: true, length: { minimum: 2, maximum: 50 }
+  validates :last_name, presence: true, length: { minimum: 2, maximum: 50 }
   # validates :title, presence: true, length: { minimum: 2, maximum: 50 }
   # validates :title_of_courtesy, presence: true, length: { minimum: 2, maximum: 50 }
   # validates :birth_date, presence: true, date: { after: 18.years.ago, before: 65.years.ago }
@@ -37,5 +37,8 @@ class Employee < ApplicationRecord
     employees.uniq
 
   end
+
+  has_many :subordinates, class_name: 'Employee', foreign_key: 'reports_to', optional: true
+  belongs_to :manager, class_name: 'Employee', foreign_key: 'reports_to', optional: true
 
 end

@@ -15,13 +15,17 @@ class SearchController < ApplicationController
   end
 
   def employee 
-    
     query = params[:search]
+    records = Employee.name_like(query)
 
-    @employees = Employee.name_like(query)
+    @records = records.map { |m| Hash[m.id => m.first_name + ' ' + m.last_name] }
 
-    render inertia: 'search/index', props: {
-      employees: @employees 
+    # debugger
+
+    path = params[:controller] + '/index' #+ params[:action]
+
+    render inertia: path, props: {
+      records: @records
     }
 
   end

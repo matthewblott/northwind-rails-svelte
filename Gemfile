@@ -14,8 +14,5 @@ gem "pagy", "~> 6.1"
 
 group :development, :test do
   gem "debug"
-end
-
-group :development do
-  # gem "spring"
+  # gem "byebug", "~> 11.1"
 end

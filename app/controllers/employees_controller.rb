@@ -8,8 +8,21 @@ class EmployeesController < ApplicationController
     @pagy, @employees = pagy(Employee.all, items: count)
   end
 
+
+  def search 
+    query = params[:search]
+
+    @employees = Employee.name_like(query)
+
+    render inertia: 'employees/show', props: {
+      employees: @employees 
+    }
+
+  end
+
   def show
     @employee = Employee.find(params[:id])
+    @manager = @employee.manager
   end
 
   def edit

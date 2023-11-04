@@ -1,6 +1,47 @@
 <script lang="ts">
+  import { router } from "@inertiajs/svelte";
+  export let employees = [];
   export let employee = {};
+  export let manager = {};
   export let errors = {};
+  let employeeCount = 0;
+  let employeeId = 0;
+
+  const employeeClickHandler = (e) => {
+    // employee = e.target.value;
+  };
+
+  const employeeKeyup = (e) => {
+    const search = e.target.value;
+
+    const data = {
+      search,
+    };
+
+    const timeout = setTimeout(() => {
+      if (search.length === 0) {
+        employeeCount = 0;
+        employees = [];
+        return;
+      }
+
+      if (search.length < 2) {
+        employeeCount = 0;
+        return;
+      }
+
+      router.post("/search/employee", data, {
+        onSuccess: (page) => {
+          console.log(page);
+          employeeCount = page.props.employees.length;
+          employees = page.props.employees;
+        },
+        onError: (errors) => {
+          console.log(errors);
+        },
+      });
+    }, 500);
+  };
 </script>
 
 <form>
@@ -26,10 +67,30 @@
     >
     {#if errors.birth_date}<div>{errors.birth_date}</div>{/if}
   </div>
+  <!-- Reports To -->
+
   <div>
-    <label>Reports To <input bind:value={employee.reports_to} /></label>
-    {#if errors.reports_to}<div>{errors.reports_to}</div>{/if}
+    <input on:keyup={employeeKeyup} placeholder="search" />
+    <span>{employeeId}</span>
   </div>
+
+  <div>
+    <ul>
+      {#each employees as employee}
+        <li on:click={employeeClickHandler}>
+          <span>
+            {employee.first_name}
+            {employee.last_name}
+            <span hidden>{employee.id}</span>
+          </span>
+        </li>
+      {/each}
+    </ul>
+
+    <label>Reports To <input bind:value={employee.reports_to} /></label>
+    <!-- {#if errors.reports_to}<div>{errors.reports_to}</div>{/if} -->
+  </div>
+
   <!-- <div> -->
   <!--   <label>Address Line 1<input bind:value={employee.address1} /></label> -->
   <!--   {#if errors.address1}<div>{errors.address1}</div>{/if} -->

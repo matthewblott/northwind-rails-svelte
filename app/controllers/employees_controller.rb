@@ -8,17 +8,30 @@ class EmployeesController < ApplicationController
     @pagy, @employees = pagy(Employee.all, items: count)
   end
 
-
   def search 
     query = params[:search]
+    records = Employee.name_like(query)
 
-    @employees = Employee.name_like(query)
+    @records = records.map { |m| Hash[m.id => m.first_name + ' ' + m.last_name] }
 
-    render inertia: 'employees/show', props: {
-      employees: @employees 
-    }
+    path = params[:returnPath]
+    
+    # debugger
+    render json: @records
+
+    # render inertia: path, props: {
+    #   records: @records
+    # }
 
   end
+
+  # def search 
+  #   query = params[:search]
+  #   @employees = Employee.name_like(query)
+  #   render inertia: 'employees/show', props: {
+  #     employees: @employees 
+  #   }
+  # end
 
   def show
     @employee = Employee.find(params[:id])

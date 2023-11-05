@@ -8,7 +8,6 @@
 
   const create = () => {
     router.post(`/employees`, { employee });
-    // alert("Not implemented currently");
   };
 </script>
 

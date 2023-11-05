@@ -2,4 +2,6 @@
   import Search from "./Search.svelte";
 </script>
 
-<Search />
+<Search path="/search/employee" returnPath="search/index" />
+
+<Search path="/search/customer" returnPath="search/index" />

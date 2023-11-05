@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   resources :login, only: [:index]
   resources :categories, only: [:index, :show, :new, :create, :edit, :update ]
   resources :customers, only: [:index, :show, :new, :create, :edit, :update ]
-  resources :employees, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :employees, only: [:index, :search, :show, :new, :create, :edit, :update, :destroy]
   resources :orders, only: [:index, :show, :new, :create, :edit, :update ]
   resources :products, only: [:index, :show, :new, :create, :edit, :update ]
   resources :regions, only: [:index, :show, :new, :create, :edit, :update ]
   resources :shippers, only: [:index, :show, :new, :create, :edit, :update ]
   resources :suppliers, only: [:index, :show, :new, :create, :edit, :update ]
+
+  post 'employees/search', to: 'employees#search'
 
   get 'login', to: 'login#index'
   get 'employees/sign_in', to: 'login#index'

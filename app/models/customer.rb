@@ -15,18 +15,10 @@ class Customer < ApplicationRecord
   scope :company_name_like, ->(query) { where('company_name LIKE ?', "%#{query}%") }
   scope :company_id_or_company_name_like, -> (query) { company_id_like(query).or(company_name_like(query)) }
 
-  def self.company_like(q)
-    company_id_or_company_name_like(q).uniq
-
-    # words = q.split
-    # if words.length > 1
-    #   employees = first_name_like(words[0]) + last_name_like(words[1])
-    # else
-    #   employees = first_name_or_last_name_like(q)
-    # end
-    # 
-    # employees.uniq
-
+  def self.name_like(q)
+    customers = company_id_or_company_name_like(q)
+    customers.uniq
   end
+
 
 end

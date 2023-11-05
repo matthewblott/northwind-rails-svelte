@@ -1,6 +1,7 @@
 <script lang="ts">
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
+  import { getCookie } from "../lib/utils";
 
   export let path = "";
   export let returnPath = "";
@@ -26,14 +27,35 @@
         return;
       }
 
-      router.post(path, data, {
-        onSuccess: (page) => {
-          records = page.props.records;
+      const cookie = getCookie("XSRF-TOKEN");
+
+      fetch(`${path}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Inertia": true,
+          "X-XSRF-TOKEN": cookie,
         },
-        onError: (errors) => {
-          console.log(errors);
-        },
-      });
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((page) => {
+          console.log(page);
+          records = page;
+          // records = page.props.records;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // router.post(path, data, {
+      //   onSuccess: (page) => {
+      //     records = page.props.records;
+      //   },
+      //   onError: (errors) => {
+      //     console.log(errors);
+      //   },
+      // });
     }, 500);
   };
 

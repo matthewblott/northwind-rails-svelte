@@ -3,13 +3,15 @@ class SearchController < ApplicationController
   end
   
   def customer 
-    
     query = params[:search]
+    records = Customer.name_like(query)
 
-    @customers = Customer.company_like(query)
+    @records = records.map { |m| Hash[m.id => m.id + ' ' + m.company_name] }
 
-    render inertia: 'search/index', props: {
-      customers: @customers
+    path = params[:returnPath]
+
+    render inertia: path, props: {
+      records: @records
     }
 
   end
@@ -20,9 +22,8 @@ class SearchController < ApplicationController
 
     @records = records.map { |m| Hash[m.id => m.first_name + ' ' + m.last_name] }
 
-    # debugger
-
-    path = params[:controller] + '/index' #+ params[:action]
+    path = params[:returnPath]
+    # path = params[:controller] + '/index' #+ params[:action]
 
     render inertia: path, props: {
       records: @records

@@ -21,7 +21,7 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    @employee = Employee.find(params[:id])
+    @employee = Employee.includes(:manager).find(params[:id])
     @manager = @employee.manager
   end
 
@@ -75,7 +75,7 @@ private
   end
 
   def employee_params
-    params.require(:employee).permit(:email, :last_name, :first_name, :reports_to)
+    params.require(:employee).permit(:email, :last_name, :first_name, :reports_to, :hire_date)
     # params.require(:employee).permit(:last_name, :first_name, :title, :title_of_courtesy, :birth_date, :hire_date, :address1, :address2, :city, :region, :postal_code, :country, :home_phone, :extension, :photo)
   end
 

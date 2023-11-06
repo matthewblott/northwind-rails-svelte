@@ -3,11 +3,13 @@
   import { router } from "@inertiajs/svelte";
   import Form from "./Form.svelte";
   export let order = {};
+  export let employee = {};
+  export let customer = {};
 </script>
 
 <h1>Order</h1>
 
-<Form {order} />
+<Form {order} {employee} {customer} disabled="true" />
 
 <a href={`/orders/${order.id}/edit`} use:inertia>Edit</a>
 

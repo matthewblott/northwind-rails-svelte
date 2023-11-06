@@ -19,6 +19,7 @@ class Customer < ApplicationRecord
     customers = company_id_or_company_name_like(q)
     customers.uniq
   end
-
+  
+  has_many :orders
 
 end

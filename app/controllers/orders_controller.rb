@@ -9,15 +9,21 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id]) 
-    # @user = current_user
+    @order = Order.includes(:customer).includes(:employee).find(params[:id]) 
+    @customer = @order.customer
+    @employee = @order.employee
   end
 
   def edit
+    @order = Order.includes(:customer).includes(:employee).find(params[:id]) 
+    @customer = @order.customer
+    @employee = @order.employee
   end
 
   def new
     @order = Order.new
+    @order.order_date = Date.today
+    @order.employee_id = current_employee.id
   end
 
   def create

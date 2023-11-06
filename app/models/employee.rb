@@ -38,9 +38,8 @@ class Employee < ApplicationRecord
 
   end
 
-  # has_many :subordinates, class_name: 'Employee', foreign_key: 'reports_to', optional: true
-  # belongs_to :manager, class_name: 'Employee', foreign_key: 'reports_to', optional: true
   has_many :subordinates, class_name: 'Employee', foreign_key: 'reports_to'
-  belongs_to :manager, class_name: 'Employee', foreign_key: 'reports_to'
+  belongs_to :manager, class_name: 'Employee', foreign_key: 'reports_to', optional: true
 
+  has_many :orders
 end

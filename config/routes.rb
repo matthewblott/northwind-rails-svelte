@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :login, only: [:index]
   resources :categories, only: [:index, :show, :new, :create, :edit, :update ]
-  resources :customers, only: [:index, :show, :new, :create, :edit, :update ]
+  resources :customers, only: [:index, :search, :show, :new, :create, :edit, :update ]
   resources :employees, only: [:index, :search, :show, :new, :create, :edit, :update, :destroy]
   resources :orders, only: [:index, :show, :new, :create, :edit, :update ]
   resources :products, only: [:index, :show, :new, :create, :edit, :update ]
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :suppliers, only: [:index, :show, :new, :create, :edit, :update ]
 
   post 'employees/search', to: 'employees#search'
+  post 'customers/search', to: 'customers#search'
 
   get 'login', to: 'login#index'
   get 'employees/sign_in', to: 'login#index'

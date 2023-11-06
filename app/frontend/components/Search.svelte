@@ -1,6 +1,4 @@
 <script lang="ts">
-  // import { router } from "@inertiajs/svelte";
-  // import { inertia } from "@inertiajs/svelte";
   import { getCookie } from "../lib/utils";
   import { onMount } from "svelte";
 
@@ -24,9 +22,17 @@
       search,
     };
 
+    if (e.keyCode === 8 && search.length === 0) {
+      records = [];
+      return;
+    }
+
     const timeout = setTimeout(() => {
       if (search.length === 0) {
         records = [];
+        component.querySelector('input[placeholder="search"]').value = "";
+        value = "";
+
         return;
       }
 
@@ -69,7 +75,7 @@
   <div>
     <input on:keyup={keyup} placeholder="search" title={value} />
     <input type="hidden" bind:value />
-    <span>{value === null ? "" : value}</span>
+    <span class="key">{value === null ? "" : value}</span>
   </div>
 
   <ul>
@@ -88,5 +94,10 @@
   li {
     padding-right: 5px;
     cursor: pointer;
+  }
+
+  span.key {
+    color: grey;
+    font-size: 0.7rem;
   }
 </style>

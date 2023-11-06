@@ -4,6 +4,8 @@
   import { inertia } from "@inertiajs/svelte";
 
   export let order = {};
+  export let employee = {};
+  export let customer = {};
   export let errors = {};
 
   const update = () => {
@@ -16,7 +18,9 @@
 </script>
 
 <h1>Edit Order</h1>
-<Form {order} {errors} />
+
+<Form {order} {errors} {employee} {customer} />
+
 <button on:click={update}>Update</button>
 <button on:click={remove}>Delete</button>
 <a href={`/orders/${order.id}`} use:inertia>Back</a>

@@ -1,20 +1,27 @@
 <script lang="ts">
-  import { router } from "@inertiajs/svelte";
-  import { inertia } from "@inertiajs/svelte";
+  // import { router } from "@inertiajs/svelte";
+  // import { inertia } from "@inertiajs/svelte";
   import { getCookie } from "../lib/utils";
+  import { onMount } from "svelte";
 
   export let path = "";
-  export let returnPath = "";
-  let id = "";
+  export let value = "";
+  export let display = "";
+
   let records = [];
   let component;
+
+  onMount(() => {
+    if (display !== "") {
+      component.querySelector('input[placeholder="search"]').value = display;
+    }
+  });
 
   const keyup = (e) => {
     const search = e.target.value;
 
     const data = {
       search,
-      returnPath,
     };
 
     const timeout = setTimeout(() => {
@@ -30,7 +37,7 @@
       const cookie = getCookie("XSRF-TOKEN");
 
       fetch(`${path}`, {
-        method: "POST",
+        method: "post",
         headers: {
           "Content-Type": "application/json",
           "X-Inertia": true,
@@ -40,22 +47,11 @@
       })
         .then((response) => response.json())
         .then((page) => {
-          console.log(page);
           records = page;
-          // records = page.props.records;
         })
         .catch((error) => {
           console.log(error);
         });
-
-      // router.post(path, data, {
-      //   onSuccess: (page) => {
-      //     records = page.props.records;
-      //   },
-      //   onError: (errors) => {
-      //     console.log(errors);
-      //   },
-      // });
     }, 500);
   };
 
@@ -63,7 +59,7 @@
     component.querySelector('input[placeholder="search"]').value =
       e.target.innerText;
 
-    id = e.target.querySelector("span[hidden]").innerText;
+    value = e.target.querySelector("span[hidden]").innerText;
 
     records = [];
   };
@@ -71,9 +67,9 @@
 
 <div bind:this={component}>
   <div>
-    <input on:keyup={keyup} placeholder="search" title={id} />
-    <input type="hidden" {id} />
-    <span class="id">{id}</span>
+    <input on:keyup={keyup} placeholder="search" title={value} />
+    <input type="hidden" bind:value />
+    <span>{value === null ? "" : value}</span>
   </div>
 
   <ul>

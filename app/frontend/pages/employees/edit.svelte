@@ -3,6 +3,7 @@
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
 
+  export let manager = {};
   export let employee = {};
   export let errors = {};
 
@@ -11,13 +12,14 @@
   };
 
   const remove = () => {
-    // router.delete(`/employees/${employee.id}`);
-    alert("Not implemented currently");
+    router.delete(`/employees/${employee.id}`);
   };
 </script>
 
 <h1>Edit Employee</h1>
-<Form {employee} {errors} />
+
+<Form {employee} {manager} {errors} />
+
 <button on:click={update}>Update</button>
 <button on:click={remove}>Delete</button>
 <a href={`/employees/${employee.id}`} use:inertia>Back</a>

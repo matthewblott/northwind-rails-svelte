@@ -14,24 +14,11 @@ class EmployeesController < ApplicationController
 
     @records = records.map { |m| Hash[m.id => m.first_name + ' ' + m.last_name] }
 
-    path = params[:returnPath]
+    # path = params[:returnPath]
     
-    # debugger
     render json: @records
 
-    # render inertia: path, props: {
-    #   records: @records
-    # }
-
   end
-
-  # def search 
-  #   query = params[:search]
-  #   @employees = Employee.name_like(query)
-  #   render inertia: 'employees/show', props: {
-  #     employees: @employees 
-  #   }
-  # end
 
   def show
     @employee = Employee.find(params[:id])
@@ -39,6 +26,8 @@ class EmployeesController < ApplicationController
   end
 
   def edit
+    @employee = Employee.find(params[:id])
+    @manager = @employee.manager
   end
 
   def new
@@ -86,7 +75,7 @@ private
   end
 
   def employee_params
-    params.require(:employee).permit(:email, :last_name, :first_name)
+    params.require(:employee).permit(:email, :last_name, :first_name, :reports_to)
     # params.require(:employee).permit(:last_name, :first_name, :title, :title_of_courtesy, :birth_date, :hire_date, :address1, :address2, :city, :region, :postal_code, :country, :home_phone, :extension, :photo)
   end
 

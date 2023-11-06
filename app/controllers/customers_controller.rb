@@ -8,6 +8,16 @@ class CustomersController < ApplicationController
     @pagy, @customers = pagy(Customer.all, items: count)
   end
 
+  def search 
+    query = params[:search]
+    records = Customer.name_like(query)
+
+    @records = records.map { |m| Hash[m.id => m.id + ' ' + m.company_name] }
+    
+    render json: @records
+
+  end
+
   def show
     @customer = Customer.find(params[:id]) 
     # @user = current_user

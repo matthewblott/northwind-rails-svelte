@@ -8,7 +8,7 @@
 
 <h1>Employee</h1>
 
-<Form {employee} {manager} />
+<Form {employee} {manager} disabled="true" />
 
 <a href={`/employees/${employee.id}/edit`} use:inertia>Edit</a>
 

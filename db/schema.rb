@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_01_200932) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_07_151819) do
+  create_table "addresses", force: :cascade do |t|
+    t.string "name", limit: 50
+    t.string "address_line_1", limit: 100
+    t.string "address_line_2", limit: 100
+    t.string "postal_town", limit: 100
+    t.string "county", limit: 100
+    t.string "post_code", limit: 10
+    t.string "country", limit: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "category_name", limit: 50
     t.string "description", limit: 250
@@ -77,13 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_01_200932) do
     t.string "customer_id"
     t.datetime "order_date", precision: nil
     t.datetime "shipped_date", precision: nil
-    t.string "ship_name", limit: 50
-    t.string "ship_address1", limit: 150
-    t.string "ship_address2", limit: 150
-    t.string "ship_city", limit: 50
-    t.string "ship_state", limit: 50
-    t.string "ship_postal_code", limit: 50
-    t.string "ship_country", limit: 50
+    t.integer "address_id"
     t.decimal "shipping_fee", precision: 19, scale: 4, default: "0.0"
     t.string "payment_type", limit: 50
     t.datetime "paid_date", precision: nil
@@ -132,4 +138,19 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_01_200932) do
     t.datetime "updated_at", null: false
   end
 
+
+  create_view "queryable_addresses", sql_definition: <<-SQL
+      select
+    id,
+    name,
+    trim(name) || ' ' ||
+    trim(address_line_1) || ' ' ||
+    trim(address_line_2) || ' ' ||
+    trim(postal_town) || ' ' ||
+    trim(county) || ' ' ||
+    trim(post_code) || ' ' ||
+    trim(country) as address
+  from
+    addresses
+  SQL
 end

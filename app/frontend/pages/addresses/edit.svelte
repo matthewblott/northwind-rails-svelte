@@ -3,14 +3,11 @@
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
 
-  export let order = {};
   export let address = {};
-  export let employee = {};
-  export let customer = {};
   export let errors = {};
 
   const update = () => {
-    router.put(`/orders/${order.id}`, { order });
+    router.put(`/addresses/${address.id}`, { address });
   };
 
   const remove = () => {
@@ -18,13 +15,11 @@
   };
 </script>
 
-<h1>Edit Order</h1>
-
-<Form {order} {errors} {address} {employee} {customer} />
-
+<h1>Edit Address</h1>
+<Form {address} {errors} />
 <button on:click={update}>Update</button>
 <button on:click={remove}>Delete</button>
-<a href={`/orders/${order.id}`} use:inertia>Back</a>
+<a href={`/addresses/${address.id}`} use:inertia>Back</a>
 
 <style>
   label {

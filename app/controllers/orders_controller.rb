@@ -9,13 +9,15 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.includes(:customer).includes(:employee).find(params[:id]) 
+    @order = Order.includes(:address).includes(:customer).includes(:employee).find(params[:id]) 
+    @address = @order.address
     @customer = @order.customer
     @employee = @order.employee
   end
 
   def edit
-    @order = Order.includes(:customer).includes(:employee).find(params[:id]) 
+    @order = Order.includes(:address).includes(:customer).includes(:employee).find(params[:id]) 
+    @address = @order.address
     @customer = @order.customer
     @employee = @order.employee
   end
@@ -61,6 +63,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:customer_id, :employee_id, :order_date, :shipped_date, :ship_name, :ship_address1, :ship_city, :ship_state, :ship_postal_code, :ship_country, :shipping_fee, :payment_type, :paid_date, :order_status)
+      params.require(:order).permit(:customer_id, :employee_id, :order_date, :shipped_date, :address_id, :shipping_fee, :payment_type, :paid_date, :order_status)
     end
 end

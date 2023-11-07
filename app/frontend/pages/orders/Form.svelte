@@ -6,25 +6,35 @@
 
   export let disabled = false;
   export let order = {};
-  export let employee = {};
   export let errors = {};
+  export let address = {};
   export let customer = {};
+  export let employee = {};
 
+  const addressPath = "/addresses/search";
   const customersPath = "/customers/search";
   const employeesPath = "/employees/search";
 
   let form;
+
+  let addressName = address.name === undefined ? "" : address.name;
+
+  let companyName =
+    customer.company_name === undefined ? "" : customer.company_name;
 
   let employeeName =
     employee.first_name === undefined
       ? ""
       : employee.first_name + " " + employee.last_name;
 
-  let companyName =
-    customer.company_name === undefined ? "" : customer.company_name;
-
   onMount(() => {
     form.querySelector(".order-date").value = order.order_date.substr(0, 10);
+
+    form.querySelector(".shipped-date").value = order.shipped_date?.substr(
+      0,
+      10
+    );
+    form.querySelector(".paid-date").value = order.paid_date?.substr(0, 10);
   });
 </script>
 
@@ -56,46 +66,26 @@
           bind:value={order.order_date}
         /></label
       >
-      {#if errors.order_date}<span>{errors.order_date}</span>{/if}
+      <Error value={errors.order_date} />
+    </div>
+    <div>
+      <span>Address</span>
+      <Search
+        path={addressPath}
+        display={addressName}
+        bind:value={order.address_id}
+      />
+      <Error value={errors.address_id} />
     </div>
     <div>
       <label
         >Shipped Date <input
+          class="shipped-date"
           type="date"
           bind:value={order.shipped_date}
         /></label
       >
       {#if errors.shipped_date}<span>{errors.shipped_date}</span>{/if}
-    </div>
-    <div>
-      <label>Ship Name <input bind:value={order.ship_name} /></label>
-      {#if errors.ship_name}<span>{errors.ship_name}</span>{/if}
-    </div>
-    <div>
-      <label>Ship Address1 <input bind:value={order.ship_address1} /></label>
-      {#if errors.ship_address1}<span>{errors.ship_address1}</span>{/if}
-    </div>
-    <div>
-      <label>Ship Address2 <input bind:value={order.ship_address2} /></label>
-      {#if errors.ship_address2}<span>{errors.ship_address2}</span>{/if}
-    </div>
-    <div>
-      <label>Ship City <input bind:value={order.ship_city} /></label>
-      {#if errors.ship_city}<span>{errors.ship_city}</span>{/if}
-    </div>
-    <div>
-      <label>Ship State <input bind:value={order.ship_state} /></label>
-      {#if errors.ship_state}<span>{errors.ship_state}</span>{/if}
-    </div>
-    <div>
-      <label
-        >Ship Postal Code <input bind:value={order.ship_postal_code} /></label
-      >
-      {#if errors.ship_postal_code}<span>{errors.ship_postal_code}</span>{/if}
-    </div>
-    <div>
-      <label>Ship Country <input bind:value={order.ship_country} /></label>
-      {#if errors.ship_country}<span>{errors.ship_country}</span>{/if}
     </div>
     <div>
       <label>Shipping Fee <input bind:value={order.shipping_fee} /></label>
@@ -106,7 +96,12 @@
       {#if errors.payment_type}<span>{errors.payment_type}</span>{/if}
     </div>
     <div>
-      <label>Paid Date <input type="date" bind:value={order.paid_date} /></label
+      <label
+        >Paid Date <input
+          class="paid-date"
+          type="date"
+          bind:value={order.paid_date}
+        /></label
       >
       {#if errors.paid_date}<span>{errors.paid_date}</span>{/if}
     </div>

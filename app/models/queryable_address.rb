@@ -1,0 +1,32 @@
+class QueryableAddress < ApplicationRecord
+  include ViewBasedModel
+  
+  scope :address_like, ->(query) { where('address LIKE ?', "%#{query}%") }
+  
+  def self.name_like(q)
+    words = q.split
+    len = words.length
+   
+    case len
+      when 1
+        addresses = address_like(words[0])
+      when 2
+        addresses = address_like(words[0]).or(address_like(words[1]))
+      when 3
+        addresses = address_like(words[0]).or(address_like(words[1])).or(address_like(words[2]))
+      when 4
+        addresses = address_like(words[0]).or(address_like(words[1])).or(address_like(words[2])).or(address_like(words[3]))
+      when 5
+        addresses = address_like(words[0]).or(address_like(words[1])).or(address_like(words[2])).or(address_like(words[3])).or(address_like(words[4]))
+      else
+        addresses = address_like(q)
+    end
+
+    addresses.uniq
+
+  end
+
+  # has_many :subordinates, class_name: 'Employee', foreign_key: 'reports_to'
+  # belongs_to :manager, class_name: 'Employee', foreign_key: 'reports_to', optional: true
+  # has_many :orders
+end

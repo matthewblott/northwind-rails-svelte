@@ -148,6 +148,24 @@ customers = []
 end
 
 # ============================================================================
+# Addresses
+# =============================================================================
+
+addresses = []
+
+100.times do
+  addresses << Address.create(
+    :name => Faker::Name.name,
+    :address_line_1 => Faker::Address.street_address,
+    :address_line_2 => Faker::Address.secondary_address,
+    :postal_town => Faker::Address.city,
+    :county => Faker::Address.state,
+    :post_code => Faker::Address.zip,
+    :country => Faker::Address.country
+  )
+end
+
+# ============================================================================
 # Products
 # =============================================================================
 
@@ -178,7 +196,7 @@ order_id = 4001
 
 orders = []
 
-10.times do
+20.times do
 
   random_employee_index = Random.rand(1..employees.count)
   random_employee = employees[random_employee_index - 1] 
@@ -188,19 +206,24 @@ orders = []
   random_customer = customers[random_customer_index - 1] 
   random_customer_id = random_customer.id 
 
+  random_address_index = Random.rand(1..addresses.count)
+  random_address = addresses[random_address_index - 1] 
+  random_address_id = random_address.id
+
   orders << Order.create(
     :id => order_id,
     :employee_id => random_employee_id,
     :customer_id => random_customer_id, 
     :order_date => Faker::Date.between(from: 25.years.ago, to: 1.year.ago),
     :shipped_date => Faker::Date.between(from: 25.years.ago, to: 1.month.ago),
-    :ship_name => Faker::Name.name,
-    :ship_address1 => Faker::Address.street_address,
-    :ship_address2 => Faker::Address.secondary_address,
-    :ship_city => Faker::Address.city,
-    :ship_state => Faker::Address.state,
-    :ship_postal_code => Faker::Address.zip,
-    :ship_country => Faker::Address.country,
+    :address_id => random_address_id, 
+    # :ship_name => Faker::Name.name,
+    # :ship_address1 => Faker::Address.street_address,
+    # :ship_address2 => Faker::Address.secondary_address,
+    # :ship_city => Faker::Address.city,
+    # :ship_state => Faker::Address.state,
+    # :ship_postal_code => Faker::Address.zip,
+    # :ship_country => Faker::Address.country,
     :shipping_fee => Faker::Commerce.price,
     :payment_type => Faker::Subscription.payment_method,
     :paid_date => Faker::Date.between(from: 25.years.ago, to: 1.year.ago),
@@ -215,8 +238,24 @@ end
 # Order Items 
 # =============================================================================
 
-1.times do
+orders.each do |order|
 
+  random_product_index = Random.rand(1..products.count)
+  random_product = products[random_product_index - 1] 
+  random_product_id = random_product.id
+
+  OrderItem.create(
+    :order_id => order.id,
+    :product_id => random_product_id,
+    :quantity => Faker::Number.number(digits: 2),
+    :unit_price => Faker::Commerce.price,
+    :discount => Faker::Commerce.price,
+    :order_item_status => Faker::Lorem.word,
+    :date_allocated => Faker::Date.between(from: 25.years.ago, to: 1.year.ago) 
+  )
+end
+
+10.times do
   random_order_index = Random.rand(1..orders.count)
   random_order = orders[random_order_index - 1] 
   random_order_id = random_order.id

@@ -7,7 +7,18 @@
   export let errors = {};
 
   const create = () => {
-    router.post(`/employees`, { employee });
+    router.post(
+      `/employees`,
+      { employee },
+      {
+        replace: false,
+        // preserveState: false,
+        only: ["errors"],
+        onError: (errors) => {
+          console.log(errors);
+        },
+      }
+    );
   };
 </script>
 

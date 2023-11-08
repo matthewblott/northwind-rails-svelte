@@ -13,8 +13,8 @@ class CustomersController < ApplicationController
     records = Customer.name_like(query)
 
     @records = records.map { |m| Hash[m.id => m.id + ' ' + m.company_name] }
-    
-    render json: @records
+
+    render json: @records 
 
   end
 

@@ -12,10 +12,6 @@ createInertiaApp({
       layout = Layout
     }
 
-    if (name === 'about/index') {
-      layout = undefined
-    }
-
     if (name === 'login/index') {
       layout = undefined
     }

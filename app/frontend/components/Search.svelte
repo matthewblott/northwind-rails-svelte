@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getCookie } from "../lib/utils";
   import { onMount } from "svelte";
+  import { router } from "@inertiajs/svelte";
 
   export let path = "";
   export let value = "";
@@ -52,8 +53,8 @@
         body: JSON.stringify(data),
       })
         .then((response) => response.json())
-        .then((page) => {
-          records = page;
+        .then((data) => {
+          records = data;
         })
         .catch((error) => {
           console.log(error);

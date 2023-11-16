@@ -4,27 +4,24 @@
 </script>
 
 <form>
-  <div>
-    <label>Category Name <input bind:value={category.category_name} /></label>
-    {#if errors.category_name}<div>{errors.category_name}</div>{/if}
-  </div>
-  <div>
-    <label>Description <input bind:value={category.description} /></label>
-    {#if errors.description}<div>{errors.description}</div>{/if}
-  </div>
+  <fieldset class="auto-grid">
+    <field>
+      <label>Category Name</label> <input bind:value={category.category_name} />
+      {#if errors.category_name}
+        <error class="hidden">
+          {errors.category_name}
+        </error>
+      {/if}
+    </field>
+
+    <field>
+      <label>Description</label>
+      <input bind:value={category.description} />
+      {#if errors.description}
+        <error class="hidden">
+          {errors.description}
+        </error>
+      {/if}
+    </field>
+  </fieldset>
 </form>
-
-<style>
-  form label {
-    display: inline-block;
-  }
-
-  form input {
-    display: block;
-  }
-
-  label + div {
-    color: red;
-    display: inline;
-  }
-</style>

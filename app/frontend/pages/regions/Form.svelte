@@ -4,23 +4,14 @@
 </script>
 
 <form>
-  <div>
-    <label>Name <input bind:value={region.name} /></label>
-    {#if errors.name}<div>{errors.name}</div>{/if}
-  </div>
+  <fieldset class="auto-grid">
+    <field>
+      <label>Name</label> <input bind:value={region.name} />
+      {#if errors.name}
+        <error class="hidden">
+          {errors.name}
+        </error>
+      {/if}
+    </field>
+  </fieldset>
 </form>
-
-<style>
-  form label {
-    display: inline-block;
-  }
-
-  form input {
-    display: block;
-  }
-
-  label + div {
-    color: red;
-    display: inline;
-  }
-</style>

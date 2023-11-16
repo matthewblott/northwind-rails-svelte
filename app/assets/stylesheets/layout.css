@@ -1,0 +1,24 @@
+/*
+  ==========
+  CSS Layout
+  ==========
+*/
+
+body {
+  max-width: 65rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.two-column {
+  grid-column: span 2;  
+  justify-self: center;
+  display: flex;
+}

@@ -1,0 +1,127 @@
+/*
+  ============
+  CSS Controls
+  ============
+*/
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+field {
+  display: grid;
+}
+
+input-start {
+  grid-column: 1;
+  grid-row: 2;
+  padding-left: 5px;
+  color: var(--text-color-light);
+  align-items: center;
+  font-size: 0.7em;
+  align-self: center;
+  width: 25px;
+  padding-right: 25px;
+
+  &+input {
+    padding-left: 25px; 
+  }
+}
+
+input {
+  grid-column: 1;
+  grid-row: 2;
+  border-radius: var(--radius);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--border-color);
+  color: inherit;
+  background-color: inherit;
+  border-radius: var(--border-radius);
+  padding-left: 5px;
+  &:not[type="date"] {
+    border-color: red;
+  }
+  &:focus {
+    outline: none;
+  }
+  &[inputmode="date"] {
+    color: var(--text-color-light);
+    width: 150px;
+    padding-left: 10px;
+  }
+}
+
+input[type="date"] {
+  width: 150px;
+}
+
+input-end {
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--text-color-light);
+  text-align: right;
+  align-items: center;
+  font-size: 0.7em;
+  width: 25px;
+  padding-right: 5px;
+  justify-self: end;
+  align-self: center;
+}
+
+button {
+  width: 150px;
+  border-radius: var(--border-radius);
+  color: inherit;
+  background-color: inherit;
+  border-style: solid;
+  border-color: whitesmoke;
+  border-width: 1px;
+  border-color: var(--border-color);
+  
+  &[type='submit']:hover,
+  button:hover {
+    cursor: pointer;
+  }
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  /* &.button { */
+  /*   color: var(--text-color-light); */
+  /* } */
+}
+
+
+controls {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+controls a {
+  margin-top: 3px;
+  border-color: var(--border-color);
+  border-width: 1px;
+  border-style: solid;
+  width: 150px;
+  text-align: center;
+  border-radius: var(--border-radius);
+  padding: 4px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}

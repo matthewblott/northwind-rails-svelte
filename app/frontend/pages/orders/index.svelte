@@ -1,5 +1,6 @@
 <script lang="ts">
   import { inertia } from "@inertiajs/svelte";
+  import Pager from "../../components/Pager.svelte";
   import { onMount } from "svelte";
   export let orders = [];
   export let pagy = {};
@@ -10,24 +11,7 @@
 </script>
 
 <h1>Orders</h1>
-
-<nav>
-  <ul>
-    <li>
-      <a href={`/orders/?page=1`} use:inertia>First</a>
-    </li>
-    <li>
-      <a href={`/orders/?page=` + (pagy.page - 1)} use:inertia>Previous</a>
-    </li>
-    <li>
-      <a href={`/orders/?page=` + pagy.next} use:inertia>Next</a>
-    </li>
-    <li>
-      <a href={`/orders/?page=` + pagy.last} use:inertia>Last</a>
-    </li>
-    <li><a href="/orders/new" use:inertia>New</a></li>
-  </ul>
-</nav>
+<Pager {pagy} baseUrl="/orders" />
 
 <ul>
   {#each orders as order}
@@ -38,13 +22,3 @@
     </li>
   {/each}
 </ul>
-
-<style>
-  nav ul {
-    display: flex;
-  }
-
-  li {
-    padding-right: 5px;
-  }
-</style>

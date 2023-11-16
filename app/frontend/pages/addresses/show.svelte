@@ -8,29 +8,8 @@
 <h1>Address</h1>
 
 <Form {address} />
+<controls>
+  <a href={`/addresses/${address.id}/edit`} use:inertia>Edit</a>
 
-<a href={`/addresses/${address.id}/edit`} use:inertia>Edit</a>
-
-<a href={`/addresses`} use:inertia>Back</a>
-
-<style>
-  a {
-    border-color: var(--border-color);
-    border-width: 1px;
-    border-style: solid;
-    border-radius: var(--radius);
-    padding: 4px;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  button {
-    display: inline-block;
-    margin-top: 3px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-</style>
+  <a href={`/addresses`} use:inertia>Back</a>
+</controls>

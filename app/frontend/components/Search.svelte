@@ -73,10 +73,10 @@
 </script>
 
 <div bind:this={component}>
-  <div>
+  <div class="search">
     <input on:keyup={keyup} placeholder="search" title={value} />
+    <input-end>{value === null ? "" : value}</input-end>
     <input type="hidden" bind:value />
-    <span class="key">{value === null ? "" : value}</span>
   </div>
 
   <ul>
@@ -92,13 +92,15 @@
 </div>
 
 <style>
+  div.search {
+    display: grid;
+  }
+
+  input {
+    width: 100%;
+  }
   li {
     padding-right: 5px;
     cursor: pointer;
-  }
-
-  span.key {
-    color: grey;
-    font-size: 0.7rem;
   }
 </style>

@@ -4,63 +4,105 @@
 </script>
 
 <form>
-  <div>
-    <label>Customer Id <input bind:value={customer.id} /></label>
-    {#if errors.id}<div>{errors.id}</div>{/if}
-  </div>
-  <div>
-    <label>Company Name <input bind:value={customer.company_name} /></label>
-    {#if errors.company_name}<div>{errors.company_name}</div>{/if}
-  </div>
-  <div>
-    <label>Contact Name <input bind:value={customer.contact_name} /></label>
-    {#if errors.contact_name}<div>{errors.contact_name}</div>{/if}
-  </div>
-  <div>
-    <label>Contact Title <input bind:value={customer.contact_title} /></label>
-    {#if errors.contact_title}<div>{errors.contact_title}</div>{/if}
-  </div>
-  <div>
-    <label>Address <input bind:value={customer.address} /></label>
-    {#if errors.address}<div>{errors.address}</div>{/if}
-  </div>
-  <div>
-    <label>City <input bind:value={customer.city} /></label>
-    {#if errors.city}<div>{errors.city}</div>{/if}
-  </div>
-  <div>
-    <label>Region <input bind:value={customer.region} /></label>
-    {#if errors.region}<div>{errors.region}</div>{/if}
-  </div>
-  <div>
-    <label>Postal Code <input bind:value={customer.postal_code} /></label>
-    {#if errors.postal_code}<div>{errors.postal_code}</div>{/if}
-  </div>
-  <div>
-    <label>Country <input bind:value={customer.country} /></label>
-    {#if errors.country}<div>{errors.country}</div>{/if}
-  </div>
-  <div>
-    <label>Phone <input bind:value={customer.phone} /></label>
-    {#if errors.phone}<div>{errors.phone}</div>{/if}
-  </div>
-  <div>
-    <label>Fax <input bind:value={customer.fax} /></label>
-    {#if errors.fax}<div>{errors.fax}</div>{/if}
-  </div>
+  <fieldset class="auto-grid">
+    <field>
+      <label>Customer Id</label>
+      <input bind:value={customer.id} />
+      {#if errors.customer_id}
+        <error class="hidden">
+          {errors.customer_id}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Company Name</label>
+      <input bind:value={customer.company_name} />
+      {#if errors.company_name}
+        <error class="hidden">
+          {errors.company_name}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Contact Name</label>
+      <input bind:value={customer.contact_name} />
+      {#if errors.contact_name}
+        <error class="hidden">
+          {errors.contact_name}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Contact Title</label>
+      <input bind:value={customer.contact_title} />
+      {#if errors.contact_title}
+        <error class="hidden">
+          {errors.contact_title}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Address</label>
+      <input bind:value={customer.address} />
+      {#if errors.address}
+        <error class="hidden">
+          {errors.address}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>City</label>
+      <input bind:value={customer.city} />
+      {#if errors.city}
+        <error class="hidden">
+          {errors.city}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Region</label>
+      <input bind:value={customer.region} />
+      {#if errors.region}
+        <error class="hidden">
+          {errors.region}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Postal Code</label>
+      <input bind:value={customer.postal_code} />
+      {#if errors.postal_code}
+        <error class="hidden">
+          {errors.postal_code}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Country</label>
+      <input bind:value={customer.country} />
+      {#if errors.country}
+        <error class="hidden">
+          {errors.country}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Phone</label>
+      <input bind:value={customer.phone} />
+      {#if errors.phone}
+        <error class="hidden">
+          {errors.phone}
+        </error>
+      {/if}
+    </field>
+    <field>
+      <label>Fax</label>
+      <input bind:value={customer.fax} />
+      {#if errors.fax}
+        <error class="hidden">
+          {errors.fax}
+        </error>
+      {/if}
+    </field>
+  </fieldset>
 </form>
-
-<style>
-  form label {
-    display: inline-block;
-  }
-
-  form input {
-    display: block;
-  }
-
-  label + div {
-    color: red;
-    display: inline;
-  }
-</style>

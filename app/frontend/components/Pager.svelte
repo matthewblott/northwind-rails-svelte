@@ -32,7 +32,7 @@
 </nav>
 
 <style>
-  nav ul {
+  ul {
     display: flex;
   }
 

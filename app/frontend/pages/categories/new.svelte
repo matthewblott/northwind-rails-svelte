@@ -19,5 +19,5 @@
 <Form {category} {errors} />
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/categories`} use:inertia>Back</a>
+  <a role="button" href={`/categories`} use:inertia>Back</a>
 </controls>

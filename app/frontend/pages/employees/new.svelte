@@ -12,7 +12,6 @@
       { employee },
       {
         replace: false,
-        // preserveState: false,
         only: ["errors"],
         onError: (errors) => {
           console.log(errors);
@@ -26,5 +25,5 @@
 <Form {employee} {errors} />
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/employees`} use:inertia>Back</a>
+  <a role="button" href={`/employees`} use:inertia>Back</a>
 </controls>

@@ -4,7 +4,7 @@
 </script>
 
 <form>
-  <fieldset class="auto-grid">
+  <fieldset>
     <field>
       <label>Address Name</label>
       <input bind:value={address.name} />

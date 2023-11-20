@@ -38,7 +38,7 @@
 </script>
 
 <form bind:this={form}>
-  <fieldset disabled={disabled || null} class="auto-grid">
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Customer</label>
       <Search

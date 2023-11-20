@@ -37,5 +37,5 @@
 <Form {product} {errors} />
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/products`} use:inertia>Back</a>
+  <a role="button" href={`/products`} use:inertia>Back</a>
 </controls>

@@ -15,5 +15,5 @@
 <Form {shipper} {errors} />
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/shippers`} use:inertia>Back</a>
+  <a role="button" href={`/shippers`} use:inertia>Back</a>
 </controls>

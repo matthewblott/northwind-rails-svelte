@@ -28,4 +28,10 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  # activerecord:
+  #   errors:
+  #     models:
+  #       employee:
+  #         format:
+  #           "The article's %{attribute} %{message}"
+  #

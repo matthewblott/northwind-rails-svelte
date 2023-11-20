@@ -10,6 +10,6 @@
 <Form {category} />
 
 <controls>
-  <a href={`/categories/${category.id}/edit`} use:inertia>Edit</a>
-  <a href={`/categories`} use:inertia>Back</a>
+  <a role="button" href={`/categories/${category.id}/edit`} use:inertia>Edit</a>
+  <a role="button" href={`/categories`} use:inertia>Back</a>
 </controls>

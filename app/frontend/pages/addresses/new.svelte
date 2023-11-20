@@ -15,5 +15,5 @@
 <Form {address} {errors} />
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/addresses`} use:inertia>Back</a>
+  <a role="button" href={`/addresses`} use:inertia>Back</a>
 </controls>

@@ -12,13 +12,23 @@
 
 <h1>Categories</h1>
 <Pager {pagy} baseUrl="/categories" />
-
-<ul>
-  {#each categories as category}
-    <li>
-      <a href={`/categories/${category.id}`} use:inertia
-        >{category.category_name}</a
-      >
-    </li>
-  {/each}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Category Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {#each categories as category}
+      <tr>
+        <td>
+          <a href={`/categories/${category.id}`} use:inertia
+            >{category.category_name}</a
+          >
+        </td>
+        <td>{category.description}</td>
+      </tr>
+    {/each}
+  </tbody>
+</table>

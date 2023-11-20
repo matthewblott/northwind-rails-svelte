@@ -22,5 +22,5 @@
 <Form {order} {employee} {errors} />
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/orders`} use:inertia>Back</a>
+  <a role="button" href={`/orders`} use:inertia>Back</a>
 </controls>

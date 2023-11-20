@@ -12,16 +12,22 @@
     manager?.first_name === undefined
       ? ""
       : manager.first_name + " " + manager.last_name;
+
+  const format = (message) => {
+    let returnMessage = message + "";
+
+    return returnMessage.replace(",", " and ").replace("can't", "cannot");
+  };
 </script>
 
 <form>
-  <fieldset disabled={disabled || null} class="auto-grid">
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Email</label>
       <input bind:value={employee.email} />
       {#if errors.email}
-        <error class="hidden">
-          {errors.email}
+        <error>
+          {format(errors.email)}
         </error>
       {/if}
     </field>
@@ -29,9 +35,11 @@
       <label>First Name</label>
       <input bind:value={employee.first_name} />
       {#if errors.first_name}
-        <error class="hidden">
-          {errors.first_name}
-        </error>
+        {#each errors.first_name as error}
+          <error class="hidden">
+            {error}
+          </error>
+        {/each}
       {/if}
     </field>
     <field>

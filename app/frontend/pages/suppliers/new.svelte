@@ -16,5 +16,5 @@
 
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/suppliers`} use:inertia>Back</a>
+  <a role="button" href={`/suppliers`} use:inertia>Back</a>
 </controls>

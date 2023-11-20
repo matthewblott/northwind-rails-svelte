@@ -4,7 +4,7 @@
 </script>
 
 <form>
-  <fieldset class="auto-grid">
+  <fieldset>
     <field>
       <label>Name</label> <input bind:value={region.name} />
       {#if errors.name}

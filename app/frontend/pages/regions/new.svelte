@@ -37,5 +37,5 @@
 <Form {region} {errors} />
 <controls>
   <button on:click={create}>Create</button>
-  <a href={`/regions`} use:inertia>Back</a>
+  <a role="button" href={`/regions`} use:inertia>Back</a>
 </controls>

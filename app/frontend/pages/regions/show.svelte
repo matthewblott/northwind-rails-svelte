@@ -9,6 +9,6 @@
 
 <Form {region} />
 <controls>
-  <a href={`/regions/${region.id}/edit`} use:inertia>Edit</a>
-  <a href={`/regions`} use:inertia>Back</a>
+  <a role="button" href={`/regions/${region.id}/edit`} use:inertia>Edit</a>
+  <a role="button" href={`/regions`} use:inertia>Back</a>
 </controls>

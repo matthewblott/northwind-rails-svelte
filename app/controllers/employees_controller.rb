@@ -44,7 +44,8 @@ class EmployeesController < ApplicationController
     if @employee.save
       redirect_to @employee, notice: "employee was successfully created."
     else
-      
+      # debugger
+      # errors = []
       # @employee.errors.each do |error|
       #   errors << error.attribute.to_s + ': ' + error.message
       # end      

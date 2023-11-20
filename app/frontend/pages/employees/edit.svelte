@@ -22,5 +22,5 @@
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
-  <a href={`/employees/${employee.id}`} use:inertia>Back</a>
+  <a role="button" href={`/employees/${employee.id}`} use:inertia>Back</a>
 </controls>

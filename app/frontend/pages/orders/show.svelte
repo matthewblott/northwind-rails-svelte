@@ -12,6 +12,6 @@
 
 <Form {order} {address} {employee} {customer} disabled="true" />
 <controls>
-  <a href={`/orders/${order.id}/edit`} use:inertia>Edit</a>
-  <a href={`/orders`} use:inertia>Back</a>
+  <a role="button" href={`/orders/${order.id}/edit`} use:inertia>Edit</a>
+  <a role="button" href={`/orders`} use:inertia>Back</a>
 </controls>

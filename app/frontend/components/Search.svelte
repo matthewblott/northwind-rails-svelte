@@ -92,6 +92,15 @@
 </div>
 
 <style>
+  input {
+    /* width: 100%; */
+    /* border: 1px solid red; */
+  }
+
+  input-end {
+    width: 100%;
+    /* border: 1px solid blue; */
+  }
   div.search {
     display: grid;
   }

@@ -12,12 +12,26 @@
 
 <h1>Addresss</h1>
 <Pager {pagy} baseUrl="/addresses" />
-<ul>
-  {#each addresses as address}
-    <li>
-      <a href={`/addresses/${address.id}`} use:inertia
-        >{address.name} {address.address_line_1}</a
-      >
-    </li>
-  {/each}
-</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address Line 1</th>
+      <th>Postal Town</th>
+      <th>Post Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    {#each addresses as address}
+      <tr>
+        <td>
+          <a href={`/addresses/${address.id}`} use:inertia>{address.name}</a>
+        </td>
+        <td>{address.address_line_1}</td>
+        <td>{address.postal_town}</td>
+        <td>{address.post_code}</td>
+      </tr>
+    {/each}
+  </tbody>
+</table>

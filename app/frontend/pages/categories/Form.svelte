@@ -4,7 +4,7 @@
 </script>
 
 <form>
-  <fieldset class="auto-grid">
+  <fieldset>
     <field>
       <label>Category Name</label> <input bind:value={category.category_name} />
       {#if errors.category_name}

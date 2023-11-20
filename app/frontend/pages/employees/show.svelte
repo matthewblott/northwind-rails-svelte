@@ -10,6 +10,6 @@
 
 <Form {employee} {manager} disabled="true" />
 <controls>
-  <a href={`/employees/${employee.id}/edit`} use:inertia>Edit</a>
-  <a href={`/employees`} use:inertia>Back</a>
+  <a role="button" href={`/employees/${employee.id}/edit`} use:inertia>Edit</a>
+  <a role="button" href={`/employees`} use:inertia>Back</a>
 </controls>

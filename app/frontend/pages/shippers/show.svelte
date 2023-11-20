@@ -9,6 +9,6 @@
 
 <Form {shipper} />
 <controls>
-  <a href={`/shippers/${shipper.id}/edit`} use:inertia>Edit</a>
-  <a href={`/shippers`} use:inertia>Back</a>
+  <a role="button" href={`/shippers/${shipper.id}/edit`} use:inertia>Edit</a>
+  <a role="button" href={`/shippers`} use:inertia>Back</a>
 </controls>

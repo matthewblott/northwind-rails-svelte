@@ -38,5 +38,7 @@ module NorthwindWithRails
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # config.active_model.i18n_customize_full_message = true
   end
 end

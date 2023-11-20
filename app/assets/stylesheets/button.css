@@ -1,0 +1,30 @@
+/*
+  ==========
+  CSS Button 
+  ==========
+*/
+
+button, a[role="button"] {
+  border-radius: var(--border-radius);
+  color: inherit;
+  background-color: inherit;
+  border-style: solid;
+  border-color: whitesmoke;
+  border-width: 1px;
+  border-color: var(--border-color);
+  text-align: center;  
+
+  padding: var(--space-3xs) var(--space-l);
+  text-decoration: none;
+    cursor: pointer;
+
+  &[type='submit']:hover,
+  button:hover {
+    cursor: pointer;
+  }
+
+}
+
+a[role="button"] {
+  display: inline-block;
+}

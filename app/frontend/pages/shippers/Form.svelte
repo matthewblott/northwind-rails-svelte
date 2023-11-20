@@ -4,7 +4,7 @@
 </script>
 
 <form>
-  <fieldset class="auto-grid">
+  <fieldset>
     <field>
       <label>Company Name</label>
       <input bind:value={shipper.company_name} />

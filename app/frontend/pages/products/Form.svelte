@@ -4,7 +4,7 @@
 </script>
 
 <form>
-  <fieldset class="auto-grid">
+  <fieldset>
     <field>
       <label>Product Code</label>
       <input bind:value={product.product_code} />

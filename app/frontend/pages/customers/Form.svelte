@@ -4,13 +4,13 @@
 </script>
 
 <form>
-  <fieldset class="auto-grid">
+  <fieldset>
     <field>
       <label>Customer Id</label>
       <input bind:value={customer.id} />
-      {#if errors.customer_id}
-        <error class="hidden">
-          {errors.customer_id}
+      {#if errors.id}
+        <error class="_idden">
+          {errors.id}
         </error>
       {/if}
     </field>

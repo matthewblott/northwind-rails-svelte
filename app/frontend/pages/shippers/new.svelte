@@ -12,8 +12,8 @@
 </script>
 
 <h1>New Shipper</h1>
-<Form {shipper} {errors} />
 <controls>
   <button on:click={create}>Create</button>
   <a role="button" href={`/shippers`} use:inertia>Back</a>
 </controls>
+<Form {shipper} {errors} />

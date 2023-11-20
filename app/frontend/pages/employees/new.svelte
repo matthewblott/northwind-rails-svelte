@@ -22,8 +22,8 @@
 </script>
 
 <h1>New Employee</h1>
-<Form {employee} {errors} />
 <controls>
   <button on:click={create}>Create</button>
   <a role="button" href={`/employees`} use:inertia>Back</a>
 </controls>
+<Form {employee} {errors} />

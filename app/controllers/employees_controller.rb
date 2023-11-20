@@ -5,7 +5,11 @@ class EmployeesController < ApplicationController
   def index
     # todo: get this from the paramaters so we can vary the page count
     count = 10
-    @pagy, @employees = pagy(Employee.all, items: count)
+    @pagy, @employees = pagy(Employee.left_outer_joins(:manager)
+      .select(:id, :first_name, :last_name, :reports_to, :hire_date)
+      .select('managers_employees.first_name as manager_first_name')
+      .select('managers_employees.last_name as manager_last_name')
+      .all, items: count)
   end
 
   def search 
@@ -13,8 +17,6 @@ class EmployeesController < ApplicationController
     records = Employee.name_like(query)
 
     @records = records.map { |m| Hash[m.id => m.first_name + ' ' + m.last_name] }
-
-    # path = params[:returnPath]
     
     render json: @records
 

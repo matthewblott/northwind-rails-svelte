@@ -8,10 +8,29 @@
 <h1>Products</h1>
 <Pager {pagy} baseUrl="/products" />
 
-<ul>
-  {#each products as product}
-    <li>
-      <a href={`/products/${product.id}`} use:inertia>{product.product_name}</a>
-    </li>
-  {/each}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Product Code</th>
+      <th>Product Name</th>
+      <th>Standard Cost</th>
+      <th>List Price</th>
+      <th>Discontinued</th>
+    </tr>
+  </thead>
+  <tbody>
+    {#each products as product}
+      <tr>
+        <td>
+          <a href={`/products/${product.id}`} use:inertia
+            >{product.product_code}</a
+          >
+        </td>
+        <td>{product.product_name}</td>
+        <td>{product.standard_cost}</td>
+        <td>{product.list_price}</td>
+        <td>{product.discontinued ? "Yes" : "No"}</td>
+      </tr>
+    {/each}
+  </tbody>
+</table>

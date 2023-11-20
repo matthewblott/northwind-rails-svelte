@@ -12,9 +12,8 @@
 </script>
 
 <h1>New Customer</h1>
-<Form {customer} {errors} />
-
 <controls>
   <button on:click={create}>Create</button>
   <a role="button" href={`/customers`} use:inertia>Back</a>
 </controls>
+<Form {customer} {errors} />

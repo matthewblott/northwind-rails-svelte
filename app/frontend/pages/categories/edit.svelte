@@ -16,9 +16,9 @@
 </script>
 
 <h1>Edit Category</h1>
-<Form {category} {errors} />
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/categories/${category.id}`} use:inertia>Back</a>
 </controls>
+<Form {category} {errors} />

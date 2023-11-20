@@ -13,12 +13,33 @@
 <h1>Orders</h1>
 <Pager {pagy} baseUrl="/orders" />
 
-<ul>
-  {#each orders as order}
-    <li>
-      <a href={`/orders/${order.id}`} use:inertia
-        >{order.id} {order.customer_id}</a
-      >
-    </li>
-  {/each}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Order Id</th>
+      <th>Customer Id</th>
+      <th>Employee</th>
+      <th>Order Date</th>
+      <th>Paid Date</th>
+      <th>Shipped Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {#each orders as order}
+      <tr>
+        <td>
+          <a href={`/orders/${order.id}`} use:inertia>{order.id}</a>
+        </td>
+        <td>
+          {order.customer_id}
+        </td>
+        <td>
+          {order.employee_id}
+        </td>
+        <td>{order.order_date}</td>
+        <td>{order.paid_date}</td>
+        <td>{order.shipped_date}</td>
+      </tr>
+    {/each}
+  </tbody>
+</table>

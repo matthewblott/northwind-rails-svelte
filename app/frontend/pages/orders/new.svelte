@@ -19,8 +19,8 @@
 </script>
 
 <h1>New Order</h1>
-<Form {order} {employee} {errors} />
 <controls>
   <button on:click={create}>Create</button>
   <a role="button" href={`/orders`} use:inertia>Back</a>
 </controls>
+<Form {order} {employee} {errors} />

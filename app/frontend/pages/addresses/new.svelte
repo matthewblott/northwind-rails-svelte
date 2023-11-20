@@ -12,8 +12,8 @@
 </script>
 
 <h1>New Address</h1>
-<Form {address} {errors} />
 <controls>
   <button on:click={create}>Create</button>
   <a role="button" href={`/addresses`} use:inertia>Back</a>
 </controls>
+<Form {address} {errors} />

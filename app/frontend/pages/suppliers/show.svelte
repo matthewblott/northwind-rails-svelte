@@ -6,9 +6,8 @@
 </script>
 
 <h1>Supplier</h1>
-
-<Form {supplier} />
 <controls>
   <a role="button" href={`/suppliers/${supplier.id}/edit`} use:inertia>Edit</a>
   <a role="button" href={`/suppliers`} use:inertia>Back</a>
 </controls>
+<Form {supplier} />

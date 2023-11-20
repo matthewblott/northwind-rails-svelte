@@ -6,10 +6,8 @@
 </script>
 
 <h1>Category</h1>
-
-<Form {category} />
-
 <controls>
   <a role="button" href={`/categories/${category.id}/edit`} use:inertia>Edit</a>
   <a role="button" href={`/categories`} use:inertia>Back</a>
 </controls>
+<Form {category} />

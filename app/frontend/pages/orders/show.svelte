@@ -9,9 +9,8 @@
 </script>
 
 <h1>Order</h1>
-
-<Form {order} {address} {employee} {customer} disabled="true" />
 <controls>
   <a role="button" href={`/orders/${order.id}/edit`} use:inertia>Edit</a>
   <a role="button" href={`/orders`} use:inertia>Back</a>
 </controls>
+<Form {order} {address} {employee} {customer} disabled="true" />

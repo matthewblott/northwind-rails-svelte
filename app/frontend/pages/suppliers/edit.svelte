@@ -16,9 +16,9 @@
 </script>
 
 <h1>Edit Supplier</h1>
-<Form {supplier} {errors} />
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/suppliers/${supplier.id}`} use:inertia>Back</a>
 </controls>
+<Form {supplier} {errors} />

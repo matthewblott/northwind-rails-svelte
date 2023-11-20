@@ -12,10 +12,20 @@
 
 <h1>Regions</h1>
 <Pager {pagy} baseUrl="/regions" />
-<ul>
-  {#each regions as region}
-    <li>
-      <a href={`/regions/${region.id}`} use:inertia>{region.name}</a>
-    </li>
-  {/each}
-</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Region Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {#each regions as region}
+      <tr>
+        <td>
+          <a href={`/regions/${region.id}`} use:inertia>{region.name}</a>
+        </td>
+      </tr>
+    {/each}
+  </tbody>
+</table>

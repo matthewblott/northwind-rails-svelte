@@ -19,10 +19,9 @@
 </script>
 
 <h1>Edit Order</h1>
-
-<Form {order} {errors} {address} {employee} {customer} />
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/orders/${order.id}`} use:inertia>Back</a>
 </controls>
+<Form {order} {errors} {address} {employee} {customer} />

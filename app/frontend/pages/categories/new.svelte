@@ -16,8 +16,8 @@
 </script>
 
 <h1>New Category</h1>
-<Form {category} {errors} />
 <controls>
   <button on:click={create}>Create</button>
   <a role="button" href={`/categories`} use:inertia>Back</a>
 </controls>
+<Form {category} {errors} />

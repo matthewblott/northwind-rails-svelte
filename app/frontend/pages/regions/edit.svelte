@@ -16,9 +16,9 @@
 </script>
 
 <h1>Edit Region</h1>
-<Form {region} {errors} />
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/regions/${region.id}`} use:inertia>Back</a>
 </controls>
+<Form {region} {errors} />

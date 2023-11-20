@@ -13,10 +13,25 @@
 <h1>Shippers</h1>
 <Pager {pagy} baseUrl="/shippers" />
 
-<ul>
-  {#each shippers as shipper}
-    <li>
-      <a href={`/shippers/${shipper.id}`} use:inertia>{shipper.company_name}</a>
-    </li>
-  {/each}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    {#each shippers as shipper}
+      <tr>
+        <td>
+          <a href={`/shippers/${shipper.id}`} use:inertia
+            >{shipper.company_name}</a
+          >
+        </td>
+        <td>
+          {shipper.phone}
+        </td>
+      </tr>
+    {/each}
+  </tbody>
+</table>

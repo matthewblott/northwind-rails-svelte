@@ -7,9 +7,8 @@
 </script>
 
 <h1>Employee</h1>
-
-<Form {employee} {manager} disabled="true" />
 <controls>
   <a role="button" href={`/employees/${employee.id}/edit`} use:inertia>Edit</a>
   <a role="button" href={`/employees`} use:inertia>Back</a>
 </controls>
+<Form {employee} {manager} disabled="true" />

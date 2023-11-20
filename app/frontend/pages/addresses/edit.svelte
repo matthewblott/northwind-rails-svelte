@@ -16,9 +16,9 @@
 </script>
 
 <h1>Edit Address</h1>
-<Form {address} {errors} />
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/addresses/${address.id}`} use:inertia>Back</a>
 </controls>
+<Form {address} {errors} />

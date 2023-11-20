@@ -17,10 +17,9 @@
 </script>
 
 <h1>Edit Employee</h1>
-
-<Form {employee} {manager} {errors} />
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/employees/${employee.id}`} use:inertia>Back</a>
 </controls>
+<Form {employee} {manager} {errors} />

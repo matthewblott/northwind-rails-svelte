@@ -16,9 +16,9 @@
 </script>
 
 <h1>Edit Shipper</h1>
-<Form {shipper} {errors} />
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/shippers/${shipper.id}`} use:inertia>Back</a>
 </controls>
+<Form {shipper} {errors} />

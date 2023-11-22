@@ -4,10 +4,29 @@
   ==========
 */
 
+/*
+* #1E3323
+* #47594B
+* #1E3323
+* #728C78
+* #75BF86
+* */
+
+/*
+* #2D2D33
+* #3B3D52
+* #1C2EEA
+* #454A85
+* #3B45B8
+* */
+
 button, a[role="button"] {
   border-radius: var(--border-radius);
   color: inherit;
-  background-color: inherit;
+  color: var(--bg-color);
+  /* background-color: var(--primary-color); */
+  background-color: #3B45B8;
+  background-color: #75BF86;
   border-style: solid;
   border-color: whitesmoke;
   border-width: 1px;

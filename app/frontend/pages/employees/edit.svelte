@@ -22,4 +22,5 @@
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/employees/${employee.id}`} use:inertia>Back</a>
 </controls>
+<spacer data-xs />
 <Form {employee} {manager} {errors} />

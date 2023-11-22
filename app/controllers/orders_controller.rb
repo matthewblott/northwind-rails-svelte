@@ -5,7 +5,12 @@ class OrdersController < ApplicationController
   def index
     # todo: get this from the paramaters so we can vary the page count
     count = 10
-    @pagy, @orders = pagy(Order.all, items: count)
+    @pagy, @orders = pagy(Order.joins(:employee).joins(:customer)
+      .select(:id, :customer_id, :employee_id, :order_date, :shipped_date)
+      .select('paid_date')
+      .select('employees.first_name as employee_first_name')
+      .select('employees.last_name as employee_last_name')
+      .all, items: count)
   end
 
   def show

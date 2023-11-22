@@ -10,4 +10,5 @@
   <a role="button" href={`/addresses/${address.id}/edit`} use:inertia>Edit</a>
   <a role="button" href={`/addresses`} use:inertia>Back</a>
 </controls>
+<spacer data-xs />
 <Form {address} />

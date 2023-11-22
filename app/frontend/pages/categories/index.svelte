@@ -12,6 +12,7 @@
 
 <h1>Categories</h1>
 <Pager {pagy} baseUrl="/categories" />
+<spacer data-2xs />
 <table>
   <thead>
     <tr>
@@ -22,12 +23,12 @@
   <tbody>
     {#each categories as category}
       <tr>
-        <td>
+        <td title="Category Name">
           <a href={`/categories/${category.id}`} use:inertia
             >{category.category_name}</a
           >
         </td>
-        <td>{category.description}</td>
+        <td title="Description">{category.description}</td>
       </tr>
     {/each}
   </tbody>

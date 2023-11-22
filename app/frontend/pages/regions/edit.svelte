@@ -21,4 +21,5 @@
   <button on:click={remove}>Delete</button>
   <a role="button" href={`/regions/${region.id}`} use:inertia>Back</a>
 </controls>
+<spacer data-xs />
 <Form {region} {errors} />

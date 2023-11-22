@@ -1,0 +1,58 @@
+/*
+  ========
+  CSS Menu
+  ========
+*/
+
+header {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+input {
+  display: none;
+}
+
+span {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+input:checked ~ span {
+  display: none;
+}
+
+nav {
+  display: block;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+input:checked ~ nav {
+  grid-column: 1;
+}
+
+li {
+  display: inline;
+}
+
+input:checked ~ nav li {
+  display: block;
+}
+
+label {
+  justify-self: end;
+  font-size: 2.0rem;
+  line-height: 0.5em;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+label:after {
+  content: "\2261";
+}
+
+input:checked ~ label {
+  grid-column: 2;
+}

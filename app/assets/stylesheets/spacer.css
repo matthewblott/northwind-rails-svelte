@@ -1,0 +1,57 @@
+/*
+  ==========
+  CSS Spacer
+  ==========
+*/
+
+:root {
+  --space-3xs: clamp(0.25rem, 0.2331rem + 0.0847vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5456rem + 0.0847vw, 0.625rem);
+  --space-xs: clamp(0.8125rem, 0.7786rem + 0.1695vw, 0.9375rem);
+  --space-s: clamp(1.0625rem, 1.0117rem + 0.2542vw, 1.25rem);
+  --space-m: clamp(1.625rem, 1.5572rem + 0.339vw, 1.875rem);
+  --space-l: clamp(2.125rem, 2.0233rem + 0.5085vw, 2.5rem);
+  --space-xl: clamp(3.1875rem, 3.035rem + 0.7627vw, 3.75rem);
+  --space-2xl: clamp(4.25rem, 4.0466rem + 1.0169vw, 5rem);
+  --space-3xl: clamp(6.375rem, 6.0699rem + 1.5254vw, 7.5rem);
+}
+
+spacer {
+  display: block;
+}
+
+spacer[data-3xl] {
+  height: var(--space-3xl);
+}
+
+spacer[data-2xl] {
+  height: var(--space-2xl);
+}
+
+spacer[data-xl] {
+  height: var(--space-xl);
+}
+
+spacer[data-l] {
+  height: var(--space-l);
+}
+
+spacer[data-m] {
+  height: var(--space-m);
+}
+
+spacer[data-s] {
+  height: var(--space-s);
+}
+
+spacer[data-xs] {
+  height: var(--space-xs);
+}
+
+spacer[data-2xs] {
+  height: var(--space-2xs);
+}
+
+spacer[data-3xs] {
+  height: var(--space-3xs);
+}

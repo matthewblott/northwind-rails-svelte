@@ -8,10 +8,19 @@
   onMount(() => {
     document.title = "Orders";
   });
+
+  const formatDate = (value) => {
+    if (value) {
+      return value.split("T")[0];
+    }
+
+    return "";
+  };
 </script>
 
 <h1>Orders</h1>
 <Pager {pagy} baseUrl="/orders" />
+<spacer data-2xs />
 
 <table>
   <thead>
@@ -27,18 +36,19 @@
   <tbody>
     {#each orders as order}
       <tr>
-        <td>
+        <td title="Order Id">
           <a href={`/orders/${order.id}`} use:inertia>{order.id}</a>
         </td>
-        <td>
+        <td title="Customer Id">
           {order.customer_id}
         </td>
-        <td>
-          {order.employee_id}
+        <td title="Employee">
+          {order.employee_first_name}
+          {order.employee_last_name}
         </td>
-        <td>{order.order_date}</td>
-        <td>{order.paid_date}</td>
-        <td>{order.shipped_date}</td>
+        <td title="Order Date">{formatDate(order.order_date)}</td>
+        <td title="Paid Date">{formatDate(order.paid_date)}</td>
+        <td title="Shipped Date">{formatDate(order.shipped_date)}</td>
       </tr>
     {/each}
   </tbody>

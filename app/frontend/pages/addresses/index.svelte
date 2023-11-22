@@ -10,9 +10,9 @@
   });
 </script>
 
-<h1>Addresss</h1>
+<h1>Addresses</h1>
 <Pager {pagy} baseUrl="/addresses" />
-
+<spacer data-2xs />
 <table>
   <thead>
     <tr>
@@ -25,12 +25,12 @@
   <tbody>
     {#each addresses as address}
       <tr>
-        <td>
+        <td title="Name">
           <a href={`/addresses/${address.id}`} use:inertia>{address.name}</a>
         </td>
-        <td>{address.address_line_1}</td>
-        <td>{address.postal_town}</td>
-        <td>{address.post_code}</td>
+        <td title="Address Line 1">{address.address_line_1}</td>
+        <td title="Postal Town">{address.postal_town}</td>
+        <td title="Post Code">{address.post_code}</td>
       </tr>
     {/each}
   </tbody>

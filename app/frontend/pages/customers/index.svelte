@@ -12,6 +12,7 @@
 
 <h1>Customers</h1>
 <Pager {pagy} baseUrl="/customers" />
+<spacer data-2xs />
 
 <table>
   <thead>
@@ -23,10 +24,10 @@
   <tbody>
     {#each customers as customer}
       <tr>
-        <td>
+        <td title="Customer Id">
           <a href={`/customers/${customer.id}`} use:inertia>{customer.id}</a>
         </td>
-        <td>
+        <td title="Company Name">
           {customer.company_name}
         </td>
       </tr>

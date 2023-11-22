@@ -8,6 +8,39 @@ table {
   width: 100%;
 }
 
+table{
+  table-layout: fixed;
+}
+
 th {
   text-align: left;
+}
+
+th, td {
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+tr {
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  thead {
+    display: none;
+  }
+  
+  td {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  td::before {
+    content: attr(title);
+  }
+
+  td:last-of-type {
+    border-bottom: 1px solid lightblue;
+  }
+
 }

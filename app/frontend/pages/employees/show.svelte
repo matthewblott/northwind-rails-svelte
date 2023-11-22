@@ -11,4 +11,5 @@
   <a role="button" href={`/employees/${employee.id}/edit`} use:inertia>Edit</a>
   <a role="button" href={`/employees`} use:inertia>Back</a>
 </controls>
+<spacer data-xs />
 <Form {employee} {manager} disabled="true" />

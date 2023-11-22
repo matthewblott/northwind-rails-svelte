@@ -7,6 +7,7 @@
 
 <h1>Products</h1>
 <Pager {pagy} baseUrl="/products" />
+<spacer data-2xs />
 
 <table>
   <thead>
@@ -21,15 +22,15 @@
   <tbody>
     {#each products as product}
       <tr>
-        <td>
+        <td title="Product Code">
           <a href={`/products/${product.id}`} use:inertia
             >{product.product_code}</a
           >
         </td>
-        <td>{product.product_name}</td>
-        <td>{product.standard_cost}</td>
-        <td>{product.list_price}</td>
-        <td>{product.discontinued ? "Yes" : "No"}</td>
+        <td title="Product Name">{product.product_name}</td>
+        <td title="Standard Cost">{product.standard_cost}</td>
+        <td title="List Price">{product.list_price}</td>
+        <td title="Discontinued">{product.discontinued ? "Yes" : "No"}</td>
       </tr>
     {/each}
   </tbody>

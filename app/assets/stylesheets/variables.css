@@ -4,12 +4,32 @@
   =============
 */
 
+/*
+* #1E3323
+* #47594B
+* #1E3323
+* #728C78
+* #75BF86
+* */
+
+/*
+* #2D2D33
+* #3B3D52
+* #1C2EEA
+* #454A85
+* #3B45B8
+* */
+
 :root {
   --bg-color: #2D2D33;
   --text-color: whitesmoke;
   --border-color: #3B3D52;
   --border-radius: 5px;
   --text-color-light: #b1b1b1;
+  --primary-color: #75BF86;
+  --primary-color: #1C2EEA;
+  --primary-color: #3B45B8;
+
 
   /* Utopia */
   --space-3xs: clamp(0.25rem, 0.2331rem + 0.0847vw, 0.3125rem);

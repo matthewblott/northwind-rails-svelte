@@ -16,4 +16,5 @@
   <button on:click={create}>Create</button>
   <a role="button" href={`/customers`} use:inertia>Back</a>
 </controls>
+<spacer data-xs />
 <Form {customer} {errors} />

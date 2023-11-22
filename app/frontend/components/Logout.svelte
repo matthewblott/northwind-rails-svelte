@@ -16,9 +16,15 @@
 </form>
 
 <style>
+  form {
+    display: inline-block;
+  }
+
   button {
     border: none;
     padding: 0;
+    background-color: inherit;
+    color: inherit;
 
     &:hover {
       cursor: pointer;

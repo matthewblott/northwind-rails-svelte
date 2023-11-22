@@ -12,6 +12,7 @@
 
 <h1>Regions</h1>
 <Pager {pagy} baseUrl="/regions" />
+<spacer data-2xs />
 
 <table>
   <thead>
@@ -22,7 +23,7 @@
   <tbody>
     {#each regions as region}
       <tr>
-        <td>
+        <td title="Region Name">
           <a href={`/regions/${region.id}`} use:inertia>{region.name}</a>
         </td>
       </tr>

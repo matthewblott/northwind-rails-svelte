@@ -10,4 +10,5 @@
   <a role="button" href={`/regions/${region.id}/edit`} use:inertia>Edit</a>
   <a role="button" href={`/regions`} use:inertia>Back</a>
 </controls>
+<spacer data-xs />
 <Form {region} />

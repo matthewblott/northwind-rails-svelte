@@ -4,4 +4,10 @@ const getCookie = (name) => {
   return (value != null) ? decodeURIComponent(value[1]) : null;
 }
 
-export { getCookie };
+Date.prototype.toYMDString = function() {
+  return this.toISOString().split('T')[0];
+}
+
+const MyDate = Date;
+
+export { getCookie, MyDate };

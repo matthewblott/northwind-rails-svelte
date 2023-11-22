@@ -45,4 +45,10 @@
   li {
     padding-right: 5px;
   }
+
+  @media (max-width: 600px) {
+    li:nth-of-type(2) {
+      display: none;
+    }
+  }
 </style>

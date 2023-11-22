@@ -8,6 +8,7 @@
 
 <h1>Employees</h1>
 <Pager {pagy} baseUrl="/employees" />
+<spacer data-2xs />
 
 <table>
   <thead>
@@ -20,16 +21,16 @@
   <tbody>
     {#each employees as employee}
       <tr>
-        <td>
+        <td title="Name">
           <a href={`/employees/${employee.id}`} use:inertia
             >{employee.first_name} {employee.last_name}</a
           >
         </td>
-        <td
-          >{employee.manager_first_name || "N/A"}
-          {employee.manager_last_name || ""}</td
-        >
-        <td>{employee.hire_date}</td>
+        <td title="Reports To">
+          {employee.manager_first_name || "N/A"}
+          {employee.manager_last_name || ""}
+        </td>
+        <td title="Hire Date">{employee.hire_date}</td>
       </tr>
     {/each}
   </tbody>

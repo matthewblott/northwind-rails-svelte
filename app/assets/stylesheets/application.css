@@ -14,9 +14,11 @@
  *= require reset
  *= require variables
  *= require layout
+ *= require spacer 
  *= require table
  *= require form 
  *= require anchor
+ *= require label
  *= require input 
  *= require button
  *= require validation 

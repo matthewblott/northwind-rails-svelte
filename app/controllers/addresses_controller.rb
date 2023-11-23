@@ -48,7 +48,7 @@ class AddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to @address, notice: "address was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'addresses/edit', props: { 
         address: @address,
         errors: @address.errors
       }

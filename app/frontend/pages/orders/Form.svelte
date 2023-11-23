@@ -46,8 +46,6 @@
         display={companyName}
         bind:value={order.customer_id}
       />
-
-      <!-- <Error value={errors.customer_id} /> -->
       {#if errors.customer_id}
         <error class="hidden">
           {errors.customer_id}

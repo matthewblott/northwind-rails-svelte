@@ -14,17 +14,9 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.includes(:address).includes(:customer).includes(:employee).find(params[:id]) 
-    @address = @order.address
-    @customer = @order.customer
-    @employee = @order.employee
   end
 
   def edit
-    @order = Order.includes(:address).includes(:customer).includes(:employee).find(params[:id]) 
-    @address = @order.address
-    @customer = @order.customer
-    @employee = @order.employee
   end
 
   def new
@@ -50,7 +42,7 @@ class OrdersController < ApplicationController
     if @order.update(order_params)
       redirect_to @order, notice: "order was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'orders/edit', props: { 
         order: @order,
         errors: @order.errors
       }
@@ -64,7 +56,10 @@ class OrdersController < ApplicationController
 
   private
     def set_order
-      @order = Order.find(params[:id])
+      @order = Order.includes(:address).includes(:customer).includes(:employee).find(params[:id]) 
+      @address = @order.address
+      @customer = @order.customer
+      @employee = @order.employee
     end
 
     def order_params

@@ -47,7 +47,10 @@
   }
 
   @media (max-width: 600px) {
-    li:nth-of-type(2) {
+    li:nth-of-type(1) {
+      display: none;
+    }
+    li:nth-of-type(4) {
       display: none;
     }
   }

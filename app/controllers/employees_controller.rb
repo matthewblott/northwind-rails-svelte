@@ -3,7 +3,6 @@ class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[ show edit update destroy ]
   
   def index
-    # todo: get this from the paramaters so we can vary the page count
     count = 10
     @pagy, @employees = pagy(Employee.left_outer_joins(:manager)
       .select(:id, :first_name, :last_name, :reports_to, :hire_date)
@@ -23,12 +22,10 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    @employee = Employee.includes(:manager).find(params[:id])
     @manager = @employee.manager
   end
 
   def edit
-    @employee = Employee.find(params[:id])
     @manager = @employee.manager
   end
 
@@ -38,7 +35,6 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
-    
     password = 'password'
     @employee.password = password
     @employee.password_confirmation = password 
@@ -46,25 +42,18 @@ class EmployeesController < ApplicationController
     if @employee.save
       redirect_to @employee, notice: "employee was successfully created."
     else
-      # debugger
-      # errors = []
-      # @employee.errors.each do |error|
-      #   errors << error.attribute.to_s + ': ' + error.message
-      # end      
-
       render inertia: 'employees/new', props: { 
         employee: @employee,
         errors: @employee.errors,
       }
     end
-
   end
 
   def update
     if @employee.update(employee_params)
       redirect_to @employee, notice: "employee was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'employees/edit', props: { 
         employee: @employee,
         errors: @employee.errors
       }
@@ -79,7 +68,7 @@ class EmployeesController < ApplicationController
 private
 
   def set_employee
-    @employee = Employee.find(params[:id])
+    @employee = Employee.includes(:manager).find(params[:id])
   end
 
   def employee_params

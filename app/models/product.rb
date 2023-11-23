@@ -6,4 +6,14 @@ class Product < ApplicationRecord
   validates :standard_cost, presence: true
   validates :list_price, presence: true
   validates :discontinued, presence: true
+
+  scope :product_code_like, ->(query) { where('product_code LIKE ?', "%#{query}%") }
+  scope :product_name_like, ->(query) { where('product_name LIKE ?', "%#{query}%") }
+  scope :product_code_or_product_name_like, -> (query) { product_code_like(query).or(product_name_like(query)) }
+  
+  def self.name_like(q)
+    products = product_code_or_product_name_like(q)
+    products.uniq
+  end
+
 end

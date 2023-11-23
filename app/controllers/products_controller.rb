@@ -8,6 +8,18 @@ class ProductsController < ApplicationController
     @pagy, @products = pagy(Product.all, items: count)
   end
 
+
+  def search 
+    query = params[:search]
+    records = Product.name_like(query)
+
+    @records = records.map { |m| Hash[m.id => m.id.to_s + ' ' + m.product_code + ' ' + m.product_name] }
+    # @records = records.map { |m| Hash[m.product_code + ' ' + m.product_name] }
+
+    render json: @records 
+
+  end
+
   def show
     @product = Product.find(params[:id]) 
     # @user = current_user

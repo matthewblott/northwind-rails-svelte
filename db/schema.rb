@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_07_151819) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_24_174318) do
   create_table "addresses", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "address_line_1", limit: 100
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_151819) do
     t.string "country", limit: 100
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -29,6 +30,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_151819) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "customer_addresses", primary_key: ["customer_id", "address_id"], force: :cascade do |t|
+    t.string "customer_id"
+    t.integer "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "customers", id: :string, force: :cascade do |t|

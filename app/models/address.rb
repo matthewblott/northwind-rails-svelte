@@ -6,4 +6,7 @@ class Address < ApplicationRecord
   validates :county, presence: true, length: { maximum: 100 }
   validates :country, presence: true, length: { maximum: 100 }
   validates :post_code, presence: true
+
+  has_many :customer_addresses, dependent: :destroy
+
 end

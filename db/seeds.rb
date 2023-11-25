@@ -277,6 +277,25 @@ end
 end
 
 # =============================================================================
+# Customer Addresses
+# =============================================================================
+
+customer_addresses = []
+
+customers.each do |customer|
+
+  random_address_index = Random.rand(1..addresses.count)
+  random_address = addresses[random_address_index - 1] 
+  random_address_id = random_address.id
+
+  customer_addresses << CustomerAddress.create(
+    :customer_id => customer.id,
+    :address_id => random_address_id 
+  )
+
+end
+
+# =============================================================================
 # Product Categories
 # =============================================================================
 
@@ -291,4 +310,3 @@ end
 #     
 #   product_id += 1
 # end
-

@@ -27,6 +27,7 @@ class CategoriesController < ApplicationController
       redirect_to @category, notice: "category was successfully created."
     else
       render inertia: 'categories/new', props: { 
+        category: @category,
         errors: @category.errors
       }
     end

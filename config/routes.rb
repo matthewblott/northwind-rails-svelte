@@ -98,18 +98,27 @@ Rails.application.routes.draw do
   # ========================================================================= 
 
   resources :regions, only: [:index, :show, :new, :create, :edit, :update ]
+  post '/regions/new', to: 'regions#create'
+  patch '/regions/:id/edit', to: 'regions#update'
+  put '/regions/:id/edit', to: 'regions#update'
 
   # =========================================================================
   # Shippers
   # =========================================================================
 
   resources :shippers, only: [:index, :show, :new, :create, :edit, :update ]
+  post '/shippers/new', to: 'shippers#create'
+  patch '/shippers/:id/edit', to: 'shippers#update'
+  put '/shippers/:id/edit', to: 'shippers#update'
 
   # =========================================================================
   # Suppliers
   # =========================================================================
 
   resources :suppliers, only: [:index, :show, :new, :create, :edit, :update ]
+  post '/suppliers/new', to: 'suppliers#create'
+  patch '/suppliers/:id/edit', to: 'suppliers#update'
+  put '/suppliers/:id/edit', to: 'suppliers#update'
 
   # =========================================================================
   # Home

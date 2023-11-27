@@ -3,14 +3,12 @@ class ShippersController < ApplicationController
   before_action :set_shipper, only: %i[ show edit update destroy ]
   
   def index
-    # todo: get this from the paramaters so we can vary the page count
     count = 10
     @pagy, @shippers = pagy(Shipper.all, items: count)
   end
 
   def show
     @shipper = Shipper.find(params[:id]) 
-    # @user = current_user
   end
 
   def edit

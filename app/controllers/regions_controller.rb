@@ -3,14 +3,12 @@ class RegionsController < ApplicationController
   before_action :set_region, only: %i[ show edit update destroy ]
   
   def index
-    # todo: get this from the paramaters so we can vary the page count
     count = 10
     @pagy, @regions = pagy(Region.all, items: count)
   end
 
   def show
     @region = Region.find(params[:id]) 
-    # @user = current_user
   end
 
   def edit

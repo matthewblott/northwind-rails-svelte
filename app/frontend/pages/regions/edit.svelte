@@ -7,7 +7,7 @@
   export let errors = {};
 
   const update = () => {
-    router.put(`/regions/${region.id}/new`, { region });
+    router.put(`/regions/${region.id}/edit`, { region });
   };
 
   const remove = () => {

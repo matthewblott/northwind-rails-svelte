@@ -37,7 +37,7 @@ class RegionsController < ApplicationController
     if @region.update(region_params)
       redirect_to @region, notice: "region was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'regions/edit', props: { 
         region: @region,
         errors: @region.errors
       }

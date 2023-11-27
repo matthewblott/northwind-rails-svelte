@@ -9,7 +9,7 @@
   export let errors = {};
 
   const create = () => {
-    router.post(`/orders/${order_item.order_id}/items`, {
+    router.post(`/orders/${order_item.order_id}/items/new`, {
       order_item,
     });
   };

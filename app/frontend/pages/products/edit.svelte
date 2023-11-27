@@ -7,7 +7,7 @@
   export let errors = {};
 
   const update = () => {
-    router.put(`/products/${product.id}`, { product });
+    router.put(`/products/${product.id}/edit`, { product });
   };
 
   const remove = () => {

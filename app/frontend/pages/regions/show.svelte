@@ -11,4 +11,4 @@
   <a role="button" href={`/regions`} use:inertia>Back</a>
 </controls>
 <spacer data-xs />
-<Form {region} />
+<Form {region} disabled={true} />

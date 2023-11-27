@@ -8,7 +8,7 @@
 
   const create = () => {
     router.post(
-      `/employees`,
+      `/employees/new`,
       { employee },
       {
         replace: false,

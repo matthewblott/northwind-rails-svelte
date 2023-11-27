@@ -18,4 +18,4 @@
   >
 </controls>
 <spacer data-xs />
-<Form {order_item} {product} disabled="true" />
+<Form {order_item} {product} disabled={true} />

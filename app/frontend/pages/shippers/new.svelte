@@ -7,7 +7,7 @@
   export let errors = {};
 
   const create = () => {
-    router.post("/shippers", shipper, {});
+    router.post("/shippers/new", shipper, {});
   };
 </script>
 

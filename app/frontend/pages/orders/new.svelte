@@ -10,7 +10,7 @@
   export let errors = {};
 
   const create = () => {
-    router.post(`/orders/`, { order });
+    router.post(`/orders/new`, { order });
   };
 
   onMount(() => {

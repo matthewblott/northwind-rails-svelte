@@ -14,4 +14,4 @@
   <a role="button" href={`/customers`} use:inertia>Back</a>
 </controls>
 <spacer data-xs />
-<Form {customer} />
+<Form {customer} disabled={true} />

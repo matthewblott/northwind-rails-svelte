@@ -11,4 +11,4 @@
   <a role="button" href={`/addresses`} use:inertia>Back</a>
 </controls>
 <spacer data-xs />
-<Form {address} />
+<Form {address} disabled={true} />

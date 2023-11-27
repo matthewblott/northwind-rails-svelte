@@ -9,7 +9,7 @@
 
   const update = () => {
     router.put(
-      `/orders/${order_item.order_id}/items/${order_item.product_id}`,
+      `/orders/${order_item.order_id}/items/${order_item.product_id}/edit`,
       {
         order_item,
       }

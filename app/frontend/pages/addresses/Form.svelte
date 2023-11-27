@@ -1,10 +1,11 @@
 <script lang="ts">
   export let address = {};
   export let errors = {};
+  export let disabled = false;
 </script>
 
 <form>
-  <fieldset>
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Address Name</label>
       <input bind:value={address.name} />

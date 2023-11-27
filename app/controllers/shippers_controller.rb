@@ -37,7 +37,7 @@ class ShippersController < ApplicationController
     if @shipper.update(shipper_params)
       redirect_to @shipper, notice: "shipper was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'shippers/edit', props: { 
         shipper: @shipper,
         errors: @shipper.errors
       }

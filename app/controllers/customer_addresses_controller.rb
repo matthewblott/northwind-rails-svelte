@@ -43,7 +43,7 @@ class CustomerAddressesController < ApplicationController
       render inertia: 'customer_addresses/new', props: { 
         address: @address,
         customer_address: @customer_address,
-        errors: @customer_address.errors
+        errors: @address.errors
       }
   end
 

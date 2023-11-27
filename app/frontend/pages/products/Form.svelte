@@ -1,10 +1,11 @@
 <script lang="ts">
   export let product = {};
   export let errors = {};
+  export let disabled = false;
 </script>
 
 <form>
-  <fieldset>
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Product Code</label>
       <input bind:value={product.product_code} />
@@ -50,15 +51,6 @@
         </error>
       {/if}
     </field>
-    <!-- <field> -->
-    <!--   <label>Quantity Per Unit</label> -->
-    <!--   <input bind:value={product.quantity_per_unit} /> -->
-    <!--   {#if errors.quantity_per_unit} -->
-    <!--     <error class="hidden"> -->
-    <!--       {errors.quantity_per_unit} -->
-    <!--     </error> -->
-    <!--   {/if} -->
-    <!-- </field> -->
     <field>
       <label>Discontinued</label>
       <input bind:value={product.discontinued} />

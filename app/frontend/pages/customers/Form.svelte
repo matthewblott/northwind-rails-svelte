@@ -1,10 +1,11 @@
 <script lang="ts">
   export let customer = {};
   export let errors = {};
+  export let disabled = false;
 </script>
 
 <form>
-  <fieldset>
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Customer Id</label>
       <input bind:value={customer.id} />

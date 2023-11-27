@@ -1,10 +1,11 @@
 <script lang="ts">
   export let category = {};
   export let errors = {};
+  export let disabled = false;
 </script>
 
 <form>
-  <fieldset>
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Category Name</label> <input bind:value={category.category_name} />
       {#if errors.category_name}

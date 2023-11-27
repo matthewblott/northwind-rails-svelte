@@ -1,10 +1,11 @@
 <script lang="ts">
   export let region = {};
   export let errors = {};
+  export let disabled = false;
 </script>
 
 <form>
-  <fieldset>
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Name</label> <input bind:value={region.name} />
       {#if errors.name}

@@ -20,4 +20,4 @@
   >
 </controls>
 <spacer data-xs />
-<AddressForm {address} />
+<AddressForm {address} disabled={true} />

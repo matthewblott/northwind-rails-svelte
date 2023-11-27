@@ -7,7 +7,12 @@
   export let errors = {};
 
   const update = () => {
-    router.put(`/categories/${category.id}`, { category });
+    router.put(`/categories/${category.id}/edit`, category, {
+      only: ["errors"],
+      onError: (errors) => {
+        console.log(errors);
+      },
+    });
   };
 
   const remove = () => {

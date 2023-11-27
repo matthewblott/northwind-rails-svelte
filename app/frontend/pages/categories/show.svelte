@@ -11,4 +11,4 @@
   <a role="button" href={`/categories`} use:inertia>Back</a>
 </controls>
 <spacer data-xs />
-<Form {category} />
+<Form {category} disabled={true} />

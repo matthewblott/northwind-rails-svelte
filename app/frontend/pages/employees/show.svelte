@@ -12,4 +12,4 @@
   <a role="button" href={`/employees`} use:inertia>Back</a>
 </controls>
 <spacer data-xs />
-<Form {employee} {manager} disabled="true" />
+<Form {employee} {manager} disabled={true} />

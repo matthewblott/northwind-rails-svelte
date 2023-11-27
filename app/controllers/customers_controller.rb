@@ -3,7 +3,6 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show edit update destroy ]
   
   def index
-    # todo: get this from the paramaters so we can vary the page count
     count = 10
     @pagy, @customers = pagy(Customer.all, items: count)
   end
@@ -20,7 +19,6 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id]) 
-    # @user = current_user
   end
 
   def edit
@@ -47,7 +45,7 @@ class CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to @customer, notice: "customer was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'customers/edit', props: { 
         customer: @customer,
         errors: @customer.errors
       }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_24_174318) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_27_163159) do
   create_table "addresses", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "address_line_1", limit: 100
@@ -21,7 +21,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_174318) do
     t.string "country", limit: 100
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -37,7 +36,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_174318) do
     t.integer "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
   end
 
   create_table "customers", id: :string, force: :cascade do |t|
@@ -51,6 +49,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_174318) do
     t.string "country", limit: 50
     t.string "phone", limit: 50
     t.string "fax", limit: 50
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employee_addresses", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

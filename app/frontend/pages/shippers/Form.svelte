@@ -1,10 +1,11 @@
 <script lang="ts">
   export let shipper = {};
   export let errors = {};
+  export let disabled = false;
 </script>
 
 <form>
-  <fieldset>
+  <fieldset disabled={disabled || null}>
     <field>
       <label>Company Name</label>
       <input bind:value={shipper.company_name} />

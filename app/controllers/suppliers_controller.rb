@@ -3,14 +3,12 @@ class SuppliersController < ApplicationController
   before_action :set_supplier, only: %i[ show edit update destroy ]
   
   def index
-    # todo: get this from the paramaters so we can vary the page count
     count = 10
     @pagy, @suppliers = pagy(Supplier.all, items: count)
   end
 
   def show
     @supplier = Supplier.find(params[:id]) 
-    # @user = current_user
   end
 
   def edit
@@ -37,7 +35,7 @@ class SuppliersController < ApplicationController
     if @supplier.update(supplier_params)
       redirect_to @supplier, notice: "supplier was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'suppliers/edit', props: { 
         supplier: @supplier,
         errors: @supplier.errors
       }

@@ -7,9 +7,10 @@
   export let errors = {};
 
   const create = () => {
-    router.post("/categories", category, {
-      onBefore: (visit) => {
-        console.log(visit);
+    router.post("/categories/new", category, {
+      only: ["errors"],
+      onError: (errors) => {
+        console.log(errors);
       },
     });
   };

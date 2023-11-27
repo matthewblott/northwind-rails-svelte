@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product, notice: "product was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
+      render inertia: 'products/edit', props: { 
         product: @product,
         errors: @product.errors
       }

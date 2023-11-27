@@ -27,7 +27,6 @@ class CategoriesController < ApplicationController
       redirect_to @category, notice: "category was successfully created."
     else
       render inertia: 'categories/new', props: { 
-        category: @category,
         errors: @category.errors
       }
     end
@@ -37,8 +36,7 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to @category, notice: "category was successfully updated."
     else
-      render inertia: 'people/edit', props: { 
-        category: @category,
+      render inertia: 'categories/edit', props: { 
         errors: @category.errors
       }
     end

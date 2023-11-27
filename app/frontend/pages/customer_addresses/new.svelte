@@ -11,10 +11,20 @@
   export let errors = {};
 
   const create = () => {
-    router.post(`/customers/${customer_address.customer_id}/addresses`, {
-      customer_address,
-      address,
-    });
+    router.post(
+      `/customers/${customer_address.customer_id}/addresses`,
+      {
+        customer_address,
+        address,
+      },
+      {
+        replace: false,
+        only: ["errors"],
+        onError: (errors) => {
+          console.log(errors);
+        },
+      }
+    );
   };
 
   onMount(() => {

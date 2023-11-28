@@ -6,15 +6,15 @@
   import { onMount } from "svelte";
 
   export let path = "/addresses/search";
-  export let customer_address = {};
+  export let supplier_address = {};
   export let address = {};
   export let errors = {};
 
   const create = () => {
     router.post(
-      `/customers/${customer_address.customer_id}/addresses/new`,
+      `/suppliers/${supplier_address.supplier_id}/addresses/new`,
       {
-        customer_address,
+        supplier_address,
         address,
       },
       {
@@ -32,12 +32,12 @@
   });
 </script>
 
-<h1>New Customer Address</h1>
+<h1>New Supplier Address</h1>
 <controls>
   <button on:click={create}>Create</button>
   <a
     role="button"
-    href={`/customers/${customer_address.customer_id}/addresses`}
+    href={`/suppliers/${supplier_address.supplier_id}/addresses`}
     use:inertia>Back</a
   >
 </controls>

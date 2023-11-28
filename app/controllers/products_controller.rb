@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
   def index
-    # todo: get this from the paramaters so we can vary the page count
     count = 10
     @pagy, @products = pagy(Product.all, items: count)
   end
@@ -22,7 +21,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id]) 
-    # @user = current_user
   end
 
   def edit

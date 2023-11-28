@@ -9,6 +9,9 @@
 <h1>Employee</h1>
 <controls>
   <a role="button" href={`/employees/${employee.id}/edit`} use:inertia>Edit</a>
+  <a role="button" href={`/employees/${employee.id}/addresses`} use:inertia
+    >Addresses</a
+  >
   <a role="button" href={`/employees`} use:inertia>Back</a>
 </controls>
 <spacer data-xs />

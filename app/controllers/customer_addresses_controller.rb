@@ -51,7 +51,7 @@ class CustomerAddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to better_customer_addresses_show_path(customer_id:@customer_address.customer_id, address_id:@customer_address.address_id) 
     else
-      render inertia: "/customers/#{@customer_address.customer_id}/addresses/#{@customer_address.address_id}/edit", props: { 
+      render inertia: 'customer_addresses/edit', props: { 
         address: @address,
         customer_address: @customer_address,
         errors: @customer_address.errors

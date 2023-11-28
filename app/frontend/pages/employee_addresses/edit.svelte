@@ -3,15 +3,15 @@
   import { router } from "@inertiajs/svelte";
   import { inertia } from "@inertiajs/svelte";
 
-  export let customer_address = {};
+  export let employee_address = {};
   export let address = {};
   export let errors = {};
 
   const update = () => {
     router.put(
-      `/customers/${customer_address.customer_id}/addresses/${customer_address.address_id}/edit`,
+      `/employees/${employee_address.employee_id}/addresses/${employee_address.address_id}/edit`,
       {
-        customer_address,
+        employee_address,
         address,
       },
       {
@@ -24,18 +24,18 @@
 
   const remove = () => {
     router.delete(
-      `/customers/${customer_address.customer_id}/addresses/${customer_address.address_id}`
+      `/employees/${employee_address.employee_id}/addresses/${employee_address.address_id}`
     );
   };
 </script>
 
-<h1>Edit Customer Address</h1>
+<h1>Edit Employee Address</h1>
 <controls>
   <button on:click={update}>Update</button>
   <button on:click={remove}>Delete</button>
   <a
     role="button"
-    href={`/customers/${customer_address.customer_id}/addresses/${customer_address.address_id}`}
+    href={`/employees/${employee_address.employee_id}/addresses/${employee_address.address_id}`}
     use:inertia>Back</a
   >
 </controls>

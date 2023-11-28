@@ -8,5 +8,7 @@ class Address < ApplicationRecord
   validates :post_code, presence: true
 
   has_many :customer_addresses, dependent: :destroy
+  has_many :employee_addresses, dependent: :destroy
+  has_many :supplier_addresses, dependent: :destroy
 
 end

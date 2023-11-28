@@ -7,7 +7,7 @@
   export let errors = {};
 
   const create = () => {
-    router.post("/regions/new", region, {});
+    router.post("/regions/new", region);
   };
 </script>
 

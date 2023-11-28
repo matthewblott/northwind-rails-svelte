@@ -1,4 +1,5 @@
 <script lang="ts">
+  import TextField from "../../components/TextField.svelte";
   export let region = {};
   export let errors = {};
   export let disabled = false;
@@ -6,13 +7,6 @@
 
 <form>
   <fieldset disabled={disabled || null}>
-    <field>
-      <label>Name</label> <input bind:value={region.name} />
-      {#if errors.name}
-        <error class="hidden">
-          {errors.name}
-        </error>
-      {/if}
-    </field>
+    <TextField name={"Name"} bind:value={region.name} error={errors.name} />
   </fieldset>
 </form>

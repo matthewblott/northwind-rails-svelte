@@ -16,6 +16,21 @@ class CustomerAddressesController < ApplicationController
     @customer_id = customer_id
   end
 
+  def search 
+    customer_id = params[:customer_id]
+    query = params[:search]
+
+    records = QueryableAddress
+      .joins(address: :customer_addresses)
+      .where("customer_addresses.customer_id = ?", customer_id)
+      .name_like(query)
+
+    @records = records.map { |m| Hash[m.id => customer_address_caption(m)] }
+    
+    render json: @records
+
+  end
+
   def show
   end
 
@@ -79,6 +94,18 @@ class CustomerAddressesController < ApplicationController
 
     def customer_address_params
       params.require(:customer_address).permit(:customer_id, :address_id)
+    end
+
+    def customer_address_caption(customer_address)
+      value = customer_address.address.name
+      value += " #{customer_address.address.address_line_1}" if customer_address.address.address_line_1 
+      value += " #{customer_address.address.address_line_2}" if customer_address.address.address_line_2
+      value += " #{customer_address.address.postal_town}" if customer_address.address.postal_town
+      value += " #{customer_address.address.county}" if customer_address.address.county
+      value += " #{customer_address.address.post_code}" if customer_address.address.post_code
+      value += " #{customer_address.address.country}" if customer_address.address.country
+      value
+
     end
 
 end

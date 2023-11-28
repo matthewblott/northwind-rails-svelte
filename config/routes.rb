@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   # =========================================================================
   # Addresses
   # =========================================================================
-  resources :addresses, only: [:index, :show, :new, :create, :edit, :update ]
+  resources :addresses, only: [:index, :search, :show, :new, :create, :edit, :update, :destroy]
   post '/addresses/new', to: 'addresses#create'
   patch '/addresses/:id/edit', to: 'addresses#update'
   put '/addresses/:id/edit', to: 'addresses#update'
+  post '/addresses/search', to: 'addresses#search'
 
   # =========================================================================
   # Categories
@@ -19,9 +20,6 @@ Rails.application.routes.draw do
   post '/categories/new', to: 'categories#create'
   patch '/categories/:id/edit', to: 'categories#update'
   put '/categories/:id/edit', to: 'categories#update'
-
-  resources :addresses, only: [:index, :search, :show, :new, :create, :edit, :update, :destroy]
-  post 'addresses/search', to: 'addresses#search'
   
   # =========================================================================
   # Customers
@@ -47,6 +45,7 @@ Rails.application.routes.draw do
   patch '/customers/:customer_id/addresses/:address_id/edit', to: 'customer_addresses#update'
   put '/customers/:customer_id/addresses/:address_id/edit', to: 'customer_addresses#update'
   delete '/customers/:customer_id/addresses/:address_id', to: 'customer_addresses#destroy'
+  post '/customers/:customer_id/addresses/search', to: 'customer_addresses#search'
 
   # =========================================================================
   # Employees

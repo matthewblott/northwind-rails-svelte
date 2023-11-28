@@ -38,12 +38,7 @@ class CreateEmployees < ActiveRecord::Migration[7.1]
       t.date "birth_date"
       t.date "hire_date"
       t.integer "reports_to"
-      t.string "address1", limit: 150
-      t.string "address2", limit: 150
-      t.string "city", limit: 50
       t.string "region", limit: 50
-      t.string "postal_code", limit: 15
-      t.string "country", limit: 50
       t.string "home_phone", limit: 25
       t.integer "extension"
       t.string "photo", limit: 250

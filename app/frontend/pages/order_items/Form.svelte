@@ -1,6 +1,6 @@
 <script lang="ts">
+  import IntegerField from "../../components/IntegerField.svelte";
   import Search from "../../components/Search.svelte";
-  import Error from "../../components/Error.svelte";
 
   import { onMount } from "svelte";
 
@@ -52,15 +52,11 @@
         </error>
       {/if}
     </field>
-    <field>
-      <label>Quantity</label>
-      <input name="quantity" bind:value={order_item.quantity} />
-      {#if errors.quantity}
-        <error class="hidden">
-          {errors.quantity}
-        </error>
-      {/if}
-    </field>
+    <IntegerField
+      name={"Quantity"}
+      bind:value={order_item.quantity}
+      error={errors.quantity}
+    />
     <field>
       <label>Status</label>
       <input name="status" bind:value={order_item.status} />

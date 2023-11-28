@@ -5,6 +5,6 @@ class EmployeeAddress < ApplicationRecord
   validates :employee_id, presence: true
   validates :address_id, presence: true
 
-  scope by_employee_id, ->(employee_id) { where(employee_id: employee_id) }
+  scope :by_employee, ->(employee_id) { where(employee_id: employee_id) }
 
 end

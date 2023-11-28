@@ -43,8 +43,9 @@ Rails.application.routes.draw do
   get '/customers/:customer_id/addresses/:address_id', to: 'customer_addresses#show', as: 'better_customer_addresses_show'
   get '/customers/:customer_id/addresses/:address_id/edit', to: 'customer_addresses#edit'
 
-  post '/customers/:customer_id/addresses', to: 'customer_addresses#create'
-  put '/customers/:customer_id/addresses/:address_id', to: 'customer_addresses#update'
+  post '/customers/:customer_id/addresses/new', to: 'customer_addresses#create'
+  patch '/customers/:customer_id/addresses/:address_id/edit', to: 'customer_addresses#update'
+  put '/customers/:customer_id/addresses/:address_id/edit', to: 'customer_addresses#update'
   delete '/customers/:customer_id/addresses/:address_id', to: 'customer_addresses#destroy'
 
   # =========================================================================
@@ -58,6 +59,21 @@ Rails.application.routes.draw do
   post '/employees/new', to: 'employees#create'
   patch '/employees/:id/edit', to: 'employees#update'
   put '/employees/:id/edit', to: 'employees#update'
+
+  # =========================================================================
+  # Employee Addresses 
+  # =========================================================================
+
+  resources :employee_addresses, only: [:index, :show, :new, :create, :edit, :update ]
+  get '/employees/:employee_id/addresses/new', to: 'employee_addresses#new'
+  get '/employees/:employee_id/addresses', to: 'employee_addresses#index'
+  get '/employees/:employee_id/addresses/:address_id', to: 'employee_addresses#show', as: 'better_employee_addresses_show'
+  get '/employees/:employee_id/addresses/:address_id/edit', to: 'employee_addresses#edit'
+
+  post '/employees/:employee_id/addresses/new', to: 'employee_addresses#create'
+  patch '/employees/:employee_id/addresses/:address_id/edit', to: 'employee_addresses#update'
+  put '/employees/:employee_id/addresses/:address_id/edit', to: 'employee_addresses#update'
+  delete '/employees/:employee_id/addresses/:address_id', to: 'employee_addresses#destroy'
 
   # =========================================================================
   # Orders
@@ -120,6 +136,21 @@ Rails.application.routes.draw do
   patch '/suppliers/:id/edit', to: 'suppliers#update'
   put '/suppliers/:id/edit', to: 'suppliers#update'
 
+  # =========================================================================
+  # Supplier Addresses 
+  # =========================================================================
+
+  resources :supplier_addresses, only: [:index, :show, :new, :create, :edit, :update ]
+  get '/suppliers/:supplier_id/addresses/new', to: 'supplier_addresses#new'
+  get '/suppliers/:supplier_id/addresses', to: 'supplier_addresses#index'
+  get '/suppliers/:supplier_id/addresses/:address_id', to: 'supplier_addresses#show', as: 'better_supplier_addresses_show'
+  get '/suppliers/:supplier_id/addresses/:address_id/edit', to: 'supplier_addresses#edit'
+
+  post '/suppliers/:supplier_id/addresses/new', to: 'supplier_addresses#create'
+  patch '/suppliers/:supplier_id/addresses/:address_id/edit', to: 'supplier_addresses#update'
+  put '/suppliers/:supplier_id/addresses/:address_id/edit', to: 'supplier_addresses#update'
+  delete '/suppliers/:supplier_id/addresses/:address_id', to: 'supplier_addresses#destroy'
+  
   # =========================================================================
   # Home
   # =========================================================================

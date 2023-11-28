@@ -1,4 +1,5 @@
 <script lang="ts">
+  import TextField from "../../components/TextField.svelte";
   export let category = {};
   export let errors = {};
   export let disabled = false;
@@ -6,23 +7,15 @@
 
 <form>
   <fieldset disabled={disabled || null}>
-    <field>
-      <label>Category Name</label> <input bind:value={category.category_name} />
-      {#if errors.category_name}
-        <error class="hidden">
-          {errors.category_name}
-        </error>
-      {/if}
-    </field>
-
-    <field>
-      <label>Description</label>
-      <input bind:value={category.description} />
-      {#if errors.description}
-        <error class="hidden">
-          {errors.description}
-        </error>
-      {/if}
-    </field>
+    <TextField
+      name={"Category Name"}
+      bind:value={category.category_name}
+      error={errors.category_name}
+    />
+    <TextField
+      name={"Description"}
+      bind:value={category.description}
+      error={errors.description}
+    />
   </fieldset>
 </form>

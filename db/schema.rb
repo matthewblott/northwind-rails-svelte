@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_110654) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_163904) do
   create_table "addresses", force: :cascade do |t|
     t.string "name", limit: 50
     t.string "address_line_1", limit: 100
@@ -170,7 +170,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_110654) do
     trim(postal_town) || ' ' ||
     trim(county) || ' ' ||
     trim(post_code) || ' ' ||
-    trim(country) as address
+    trim(country) as address,
+    id as address_id
   from
     addresses
   SQL

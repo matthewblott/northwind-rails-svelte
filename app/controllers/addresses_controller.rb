@@ -3,7 +3,6 @@ class AddressesController < ApplicationController
   before_action :set_address, only: %i[ show edit update destroy ]
   
   def index
-    # todo: get this from the paramaters so we can vary the page count
     count = 10
     @pagy, @addresses = pagy(Address.all, items: count)
   end

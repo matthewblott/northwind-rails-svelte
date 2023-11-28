@@ -1,6 +1,6 @@
 class QueryableAddress < ApplicationRecord
   include ViewBasedModel
-  
+  belongs_to :address
   scope :address_like, ->(query) { where('address LIKE ?', "%#{query}%") }
   
   def self.name_like(q)

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import TextField from "../../components/TextField.svelte";
   export let address = {};
   export let errors = {};
   export let disabled = false;
@@ -6,68 +7,40 @@
 
 <form>
   <fieldset disabled={disabled || null}>
-    <field>
-      <label>Address Name</label>
-      <input bind:value={address.name} />
-      {#if errors.name}
-        <error class="hidden">
-          {errors.name}
-        </error>
-      {/if}
-    </field>
-    <field>
-      <label>Address Line 1</label>
-      <input bind:value={address.address_line_1} />
-      {#if errors.address_line_1}
-        <error class="hidden">
-          {errors.address_line_1}
-        </error>
-      {/if}
-    </field>
-    <field>
-      <label>Address Line 2</label>
-      <input bind:value={address.address_line_2} />
-      {#if errors.address_line_2}
-        <error class="hidden">
-          {errors.address_line_2}
-        </error>
-      {/if}
-    </field>
-    <field>
-      <label>Postal Town</label>
-      <input bind:value={address.postal_town} />
-      {#if errors.postal_town}
-        <error class="hidden">
-          {errors.postal_town}
-        </error>
-      {/if}
-    </field>
-    <field>
-      <label>County</label>
-      <input bind:value={address.county} />
-      {#if errors.county}
-        <error class="hidden">
-          {errors.county}
-        </error>
-      {/if}
-    </field>
-    <field>
-      <label>Post Code</label>
-      <input bind:value={address.post_code} />
-      {#if errors.post_code}
-        <error class="hidden">
-          {errors.post_code}
-        </error>
-      {/if}
-    </field>
-    <field>
-      <label>Country</label>
-      <input bind:value={address.country} />
-      {#if errors.country}
-        <error class="hidden">
-          {errors.country}
-        </error>
-      {/if}
-    </field>
+    <TextField
+      name={"Address Name"}
+      bind:value={address.name}
+      error={errors.name}
+    />
+    <TextField
+      name={"Address Line 1"}
+      bind:value={address.address_line_1}
+      error={errors.address_line_1}
+    />
+    <TextField
+      name={"Address Line 2"}
+      bind:value={address.address_line_2}
+      error={errors.address_line_2}
+    />
+    <TextField
+      name={"Postal Town"}
+      bind:value={address.postal_town}
+      error={errors.postal_town}
+    />
+    <TextField
+      name={"County"}
+      bind:value={address.county}
+      error={errors.county}
+    />
+    <TextField
+      name={"Post Code"}
+      bind:value={address.post_code}
+      error={errors.post_code}
+    />
+    <TextField
+      name={"Country"}
+      bind:value={address.country}
+      error={errors.country}
+    />
   </fieldset>
 </form>

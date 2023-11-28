@@ -1,8 +1,7 @@
 <script lang="ts">
+  import DateField from "../../components/DateField.svelte";
   import Search from "../../components/Search.svelte";
-  import Error from "../../components/Error.svelte";
-
-  import { onMount } from "svelte";
+  import AddressField from "./AddressField.svelte";
 
   export let disabled = false;
   export let order = {};
@@ -11,11 +10,9 @@
   export let customer = {};
   export let employee = {};
 
-  const addressPath = "/addresses/search";
+  // const addressPath = "/addresses/search";
   const customersPath = "/customers/search";
   const employeesPath = "/employees/search";
-
-  let form;
 
   let addressName = address.name === undefined ? "" : address.name;
 
@@ -26,18 +23,9 @@
     employee.first_name === undefined
       ? ""
       : employee.first_name + " " + employee.last_name;
-
-  onMount(() => {
-    form.querySelector(".order-date").value = order.order_date.substr(0, 10);
-    form.querySelector(".shipped-date").value = order.shipped_date?.substr(
-      0,
-      10
-    );
-    form.querySelector(".paid-date").value = order.paid_date?.substr(0, 10);
-  });
 </script>
 
-<form bind:this={form}>
+<form>
   <fieldset disabled={disabled || null}>
     <field>
       <label>Customer</label>
@@ -59,35 +47,27 @@
         display={employeeName}
         bind:value={order.employee_id}
       />
-      <Error value={errors.employee_id} />
-    </field>
-    <field>
-      <label>Order Date</label>
-      <input type="date" bind:value={order.order_date} class="order-date" />
-      {#if errors.order_date}
+      {#if errors.employee_id}
         <error class="hidden">
-          {errors.order_date}
+          {errors.employee_id}
         </error>
       {/if}
     </field>
-    <field>
-      <label>Address</label>
-      <Search
-        path={addressPath}
-        display={addressName}
-        bind:value={order.address_id}
-      />
-      <Error value={errors.address_id} />
-    </field>
-    <field>
-      <label>Shipped Date</label>
-      <input type="date" bind:value={order.shipped_date} class="shipped-date" />
-      {#if errors.shipped_date}
-        <error class="hidden">
-          {errors.shipped_date}
-        </error>
-      {/if}
-    </field>
+    <DateField
+      name={"Order Date"}
+      bind:value={order.order_date}
+      error={errors.order_date}
+    />
+    <AddressField
+      display={addressName}
+      customer_id={order.customer_id}
+      bind:value={order.address_id}
+    />
+    <DateField
+      name={"Shipped Date"}
+      bind:value={order.shipped_date}
+      error={errors.shipped_date}
+    />
     <field>
       <label>Shipping Fee</label>
       <input bind:value={order.shipping_fee} />
@@ -106,15 +86,11 @@
         </error>
       {/if}
     </field>
-    <field>
-      <label>Paid Date</label>
-      <input type="date" bind:value={order.paid_date} class="paid-date" />
-      {#if errors.paid_date}
-        <error class="hidden">
-          {errors.paid_date}
-        </error>
-      {/if}
-    </field>
+    <DateField
+      name={"Paid Date"}
+      bind:value={order.paid_date}
+      error={errors.paid_date}
+    />
     <field>
       <label>Status</label>
       <input bind:value={order.status} />

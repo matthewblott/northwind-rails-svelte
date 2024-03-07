@@ -1,4 +1,4 @@
-# README
+# Northwind built with Rails and Svlete 
 
 To get started:
 

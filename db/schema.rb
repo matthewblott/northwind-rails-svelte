@@ -42,11 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_163904) do
     t.string "company_name", limit: 50
     t.string "contact_name", limit: 50
     t.string "contact_title", limit: 50
-    t.string "address", limit: 50
-    t.string "city", limit: 50
     t.string "region", limit: 50
-    t.string "postal_code", limit: 50
-    t.string "country", limit: 50
     t.string "phone", limit: 50
     t.string "fax", limit: 50
     t.datetime "created_at", null: false
@@ -73,12 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_163904) do
     t.date "birth_date"
     t.date "hire_date"
     t.integer "reports_to"
-    t.string "address1", limit: 150
-    t.string "address2", limit: 150
-    t.string "city", limit: 50
     t.string "region", limit: 50
-    t.string "postal_code", limit: 15
-    t.string "country", limit: 50
     t.string "home_phone", limit: 25
     t.integer "extension"
     t.string "photo", limit: 250
@@ -147,11 +138,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_163904) do
     t.string "company_name", limit: 50
     t.string "contact_name", limit: 50
     t.string "contact_title", limit: 50
-    t.string "address", limit: 50
-    t.string "city", limit: 50
     t.string "region", limit: 50
-    t.string "postal_code", limit: 50
-    t.string "country", limit: 50
     t.string "phone", limit: 50
     t.string "fax", limit: 50
     t.string "homepage", limit: 250

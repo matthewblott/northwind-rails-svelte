@@ -1,4 +1,4 @@
-# Northwind built
+# Northwind
 
 build with Rails, Svelte and InertiaJS
 
